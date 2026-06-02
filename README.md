@@ -1,16 +1,32 @@
 ## Hi there 👋
 
-<!--
-**emilagui01/emilagui01** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Emil Aguirre CS-499 ePortfolio
 
-Here are some ideas to get you started:
+Welcome to my Computer Science Capstone ePortfolio for CS-499 at Southern New Hampshire University.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+This repository contains artifacts, enhancement plans, narratives, and supporting materials demonstrating competency in:
+
+* Software Engineering and Design
+* Algorithms and Data Structures
+* Databases
+
+## Featured Artifacts
+
+### Software Engineering and Design
+
+Travlr Full Stack Application (MEAN Stack)
+
+### Algorithms and Data Structures
+
+CS-300 Course Planner Application (C++)
+
+### Databases
+
+Travlr Full Stack Application (MongoDB/Mongoose)
+
+## ePortfolio Website
+
+Visit my GitHub Pages portfolio here:
+
+https://emilagui01.github.io
+
