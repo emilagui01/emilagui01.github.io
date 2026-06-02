@@ -1,5 +1,3 @@
-## Hi there 👋
-
 # Emil Aguirre CS-499 ePortfolio
 
 Welcome to my Computer Science Capstone ePortfolio for CS-499 at Southern New Hampshire University.
