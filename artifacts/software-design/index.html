@@ -3,42 +3,127 @@
 <head>
     <title>Software Engineering and Design Artifact</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; background-color: #f8f8f8; color: #222; }
-        .container { max-width: 950px; margin: auto; background: white; padding: 30px; border-radius: 12px; }
-        h2 { margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        .box { background-color: #f1f1f1; padding: 15px; border-radius: 8px; margin-top: 15px; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #222;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .box {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #0066cc;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <p><a href="../../index.html">← Back to Home</a></p>
 
-        <h1>Software Engineering and Design</h1>
+        <h1>Software Engineering and Design Artifact</h1>
 
-        <h2>Artifact: Travlr Full Stack Application</h2>
+        <h2>Overview</h2>
         <p>
-            The Travlr Full Stack Application is a MEAN stack travel management application
-            developed using MongoDB, Express, Angular, and Node.js. This artifact demonstrates
-            frontend and backend integration, reusable Angular components, RESTful API communication,
-            and JWT-based authentication.
+            Travlr is a full-stack travel booking web application developed using the MEAN stack:
+            MongoDB, Express, Angular, and Node.js. The application includes an Angular administrative
+            interface, a Node.js and Express backend API, MongoDB database integration, and JWT-based
+            authentication for protected routes.
         </p>
+
+        <p>
+            This artifact was originally developed in CS-465 Full Stack Development I and is being used
+            for the Software Engineering and Design category of the CS-499 Computer Science Capstone.
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Angular single-page application</li>
+            <li>RESTful API architecture</li>
+            <li>MongoDB database integration with Mongoose</li>
+            <li>JWT authentication and authorization</li>
+            <li>Protected API routes</li>
+            <li>CRUD operations for trip management</li>
+            <li>Reusable Angular components and services</li>
+        </ul>
+
+        <h2>Project Structure</h2>
+        <ul>
+            <li><strong>app_admin/</strong> - Angular administrative frontend</li>
+            <li><strong>app_api/</strong> - API controllers, models, authentication, and routes</li>
+            <li><strong>app_server/</strong> - Express server-side components</li>
+            <li><strong>public/</strong> - Static assets</li>
+            <li><strong>data/</strong> - Seed and supporting application data</li>
+        </ul>
 
         <h2>Original Artifact</h2>
         <div class="box">
-            <p>This is the original version of the Travlr application before enhancement.</p>
-            <p><a href="original/Original%20Travlr.zip">Download Original Artifact</a></p>
+            <p>
+                This is the original version of the Travlr application before the software engineering
+                and design enhancement.
+            </p>
+            <p>
+                <a href="original/Original%20Travlr.zip">Download Original Artifact</a>
+            </p>
         </div>
 
         <h2>Enhanced Artifact</h2>
         <div class="box">
-            <p>The enhanced version will be added after the software engineering and design enhancement is completed.</p>
+            <p>
+                The enhanced version of this artifact will be added after the software engineering and
+                design enhancement is completed.
+            </p>
         </div>
 
-        <h2>Enhancement Focus</h2>
+        <h2>Planned Enhancement</h2>
         <p>
-            This enhancement will focus on improving scalability, maintainability, frontend validation,
-            centralized error handling, route protection, authentication state management, and reusable service functionality.
+            The planned enhancement for this category focuses on improving the scalability,
+            maintainability, and organization of the Travlr application. Planned improvements include
+            strengthening frontend validation, implementing centralized error handling, improving route
+            protection, improving authentication state management, and expanding reusable service
+            functionality.
         </p>
+
+        <h2>Running the Project</h2>
+        <p>
+            Since generated dependency folders such as <strong>node_modules</strong> were removed to
+            reduce file size, dependencies must be reinstalled before running the project.
+        </p>
+
+        <p>Install backend dependencies:</p>
+        <pre><code>npm install</code></pre>
+
+        <p>Install Angular dependencies:</p>
+        <pre><code>cd app_admin
+npm install</code></pre>
+
+        <p>Start the backend application:</p>
+        <pre><code>npm start</code></pre>
+
+        <p>Start the Angular development server:</p>
+        <pre><code>cd app_admin
+ng serve</code></pre>
     </div>
 </body>
 </html>
