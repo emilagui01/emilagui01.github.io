@@ -3,41 +3,141 @@
 <head>
     <title>Algorithms and Data Structures Artifact</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; background-color: #f8f8f8; color: #222; }
-        .container { max-width: 950px; margin: auto; background: white; padding: 30px; border-radius: 12px; }
-        h2 { margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        .box { background-color: #f1f1f1; padding: 15px; border-radius: 8px; margin-top: 15px; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #222;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .box {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #0066cc;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <p><a href="../../index.html">← Back to Home</a></p>
 
-        <h1>Algorithms and Data Structures</h1>
+        <h1>Algorithms and Data Structures Artifact</h1>
 
-        <h2>Artifact: CS-300 Course Planner</h2>
+        <h2>Overview</h2>
         <p>
-            The Course Planner is a C++ application developed in CS-300 Data Structures and Algorithms.
-            It loads course data from a CSV file, allows users to search for courses, displays prerequisites,
-            and prints courses in alphanumeric order.
+            The Course Planner application is a C++ program developed in CS-300 Data Structures and
+            Algorithms. The program loads course information from a CSV file, stores course data,
+            allows users to search for specific courses, displays prerequisites, and prints course
+            information in alphanumeric order.
         </p>
+
+        <p>
+            This artifact is being used for the Algorithms and Data Structures enhancement category in
+            the CS-499 Computer Science Capstone.
+        </p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Load course data from a CSV file</li>
+            <li>Store course information using vectors</li>
+            <li>Search for courses by course number</li>
+            <li>Display prerequisite information</li>
+            <li>Print course lists in alphanumeric order</li>
+            <li>Analyze efficiency and tradeoffs between data structures</li>
+        </ul>
+
+        <h2>Algorithms and Data Structures</h2>
+        <p>
+            This project focuses on core data structure and algorithm concepts, including:
+        </p>
+
+        <ul>
+            <li>Vectors</li>
+            <li>Searching algorithms</li>
+            <li>Sorting algorithms</li>
+            <li>Runtime complexity analysis</li>
+            <li>Binary search trees</li>
+            <li>Hash tables</li>
+            <li>Data structure performance tradeoffs</li>
+        </ul>
+
+        <p>
+            The original implementation stores and retrieves course data using vectors while analyzing
+            alternative data structures such as hash tables and binary search trees for improved
+            performance and efficiency.
+        </p>
+
+        <h2>Files Included</h2>
+        <ul>
+            <li><strong>CoursePlanner.cpp</strong> - Main application source code</li>
+            <li><strong>CoursePlanner.sln</strong> - Visual Studio solution file</li>
+            <li><strong>CoursePlanner.vcxproj</strong> - Visual Studio project file</li>
+            <li><strong>CS 300 ABCU_Advising_Program_Input.csv</strong> - Course input data file</li>
+        </ul>
 
         <h2>Original Artifact</h2>
         <div class="box">
-            <p>This is the original version of the Course Planner application before enhancement.</p>
-            <p><a href="original/Original%20CoursePlanner.zip">Download Original Artifact</a></p>
+            <p>
+                This is the original version of the Course Planner application before the algorithms
+                and data structures enhancement.
+            </p>
+            <p>
+                <a href="original/Original%20CoursePlanner.zip">Download Original Artifact</a>
+            </p>
         </div>
 
         <h2>Enhanced Artifact</h2>
         <div class="box">
-            <p>The enhanced version will be added after the algorithms and data structures enhancement is completed.</p>
+            <p>
+                The enhanced version of this artifact will be added after the algorithms and data
+                structures enhancement is completed.
+            </p>
         </div>
 
-        <h2>Enhancement Focus</h2>
+        <h2>Planned Enhancement</h2>
         <p>
-            This enhancement will focus on improving searching and sorting efficiency by implementing
-            hash tables and binary search trees, adding runtime benchmarking, improving prerequisite lookup,
-            and comparing performance between data structures.
+            The planned enhancement for this category focuses on improving searching and sorting
+            efficiency by implementing hash tables and binary search trees. The enhancement will also
+            include runtime benchmarking, improved prerequisite lookup performance, and comparison of
+            performance between vectors, hash tables, and binary search trees.
+        </p>
+
+        <h2>Running the Project</h2>
+        <p>
+            This project is intended to be opened and run in Visual Studio.
+        </p>
+
+        <ol>
+            <li>Open <strong>CoursePlanner.sln</strong> in Visual Studio 2022.</li>
+            <li>Build the solution.</li>
+            <li>Run the program using <strong>Ctrl + F5</strong>.</li>
+            <li>Use the menu to load course data, print the course list, or search for a course.</li>
+        </ol>
+
+        <p>
+            The included CSV file must remain in the project directory so the program can load course
+            information correctly.
         </p>
     </div>
 </body>
