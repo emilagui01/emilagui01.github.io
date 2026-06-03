@@ -3,42 +3,126 @@
 <head>
     <title>Database Artifact</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; background-color: #f8f8f8; color: #222; }
-        .container { max-width: 950px; margin: auto; background: white; padding: 30px; border-radius: 12px; }
-        h2 { margin-top: 30px; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-        .box { background-color: #f1f1f1; padding: 15px; border-radius: 8px; margin-top: 15px; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            background-color: #f8f8f8;
+            color: #222;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .box {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: #0066cc;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <p><a href="../../index.html">← Back to Home</a></p>
 
-        <h1>Databases</h1>
+        <h1>Database Artifact</h1>
 
-        <h2>Artifact: Travlr Full Stack Application</h2>
+        <h2>Overview</h2>
         <p>
-            The Travlr application uses MongoDB and Mongoose to manage travel package data through
-            RESTful API endpoints. This artifact demonstrates database integration, CRUD operations,
-            Mongoose schemas, indexed fields, authentication-protected routes, and database-driven application behavior.
+            Travlr is a full-stack travel booking web application developed using the MEAN stack:
+            MongoDB, Express, Angular, and Node.js. For the database category, this artifact focuses on
+            the MongoDB and Mongoose portions of the application, including schemas, CRUD operations,
+            indexed fields, validation, and database-driven application behavior.
         </p>
+
+        <p>
+            This artifact was originally developed in CS-465 Full Stack Development I and is being used
+            for the Database enhancement category of the CS-499 Computer Science Capstone.
+        </p>
+
+        <h2>Database Features</h2>
+        <ul>
+            <li>MongoDB database integration</li>
+            <li>Mongoose schema modeling</li>
+            <li>CRUD operations for trip management</li>
+            <li>RESTful API communication with database-backed routes</li>
+            <li>JWT-protected API endpoints</li>
+            <li>Indexed database fields</li>
+            <li>Validation for structured trip data</li>
+        </ul>
+
+        <h2>Project Structure</h2>
+        <ul>
+            <li><strong>app_api/models/</strong> - Mongoose schema definitions</li>
+            <li><strong>app_api/controllers/</strong> - Backend logic for database operations</li>
+            <li><strong>app_api/routes/</strong> - API endpoints connected to MongoDB operations</li>
+            <li><strong>data/</strong> - Seed and supporting data files</li>
+            <li><strong>app_admin/</strong> - Angular frontend that communicates with database-backed API routes</li>
+        </ul>
 
         <h2>Original Artifact</h2>
         <div class="box">
-            <p>This is the original version of the Travlr application before the database enhancement.</p>
-            <p><a href="original/Original%20Travlr.zip">Download Original Artifact</a></p>
+            <p>
+                This is the original version of the Travlr application before the database enhancement.
+            </p>
+            <p>
+                <a href="original/Original%20Travlr.zip">Download Original Artifact</a>
+            </p>
         </div>
 
         <h2>Enhanced Artifact</h2>
         <div class="box">
-            <p>The enhanced version will be added after the database enhancement is completed.</p>
+            <p>
+                The enhanced version of this artifact will be added after the database enhancement is
+                completed.
+            </p>
         </div>
 
-        <h2>Enhancement Focus</h2>
+        <h2>Planned Enhancement</h2>
         <p>
-            This enhancement will focus on indexed searching, improved validation rules, advanced filtering,
-            query optimization, stronger input sanitization, protected CRUD operations, authorization controls,
-            and database error handling.
+            The planned enhancement for this category focuses on improving MongoDB functionality,
+            query efficiency, validation, and database security. Planned improvements include indexed
+            searching, improved validation rules, advanced filtering, query optimization, stronger input
+            sanitization, authorization controls for protected database operations, and improved backend
+            logging and error handling.
         </p>
+
+        <h2>Running the Project</h2>
+        <p>
+            Since generated dependency folders such as <strong>node_modules</strong> were removed to
+            reduce file size, dependencies must be reinstalled before running the project.
+        </p>
+
+        <p>Install backend dependencies:</p>
+        <pre><code>npm install</code></pre>
+
+        <p>Install Angular dependencies:</p>
+        <pre><code>cd app_admin
+npm install</code></pre>
+
+        <p>Start the backend application:</p>
+        <pre><code>npm start</code></pre>
+
+        <p>Start the Angular development server:</p>
+        <pre><code>cd app_admin
+ng serve</code></pre>
     </div>
 </body>
 </html>
