@@ -105,24 +105,44 @@
         </p>
 
         <h2>Running the Project</h2>
-        <p>
-            Since generated dependency folders such as <strong>node_modules</strong> were removed to
-            reduce file size, dependencies must be reinstalled before running the project.
-        </p>
+<p>
+    This artifact can be tested through the Travlr administrator web application. The main tools needed
+    are Visual Studio Code, Node.js/npm, Angular CLI, and a web browser. Postman is not required for
+    this software design test because these tests focus on the user interface, route protection, form
+    validation, login flow, and admin CRUD features.
+</p>
 
-        <p>Install backend dependencies:</p>
-        <pre><code>npm install</code></pre>
+<h3>Applications and Tools Needed</h3>
+<ul>
+    <li><strong>Visual Studio Code</strong> - Used to open and review the project files.</li>
+    <li><strong>Node.js and npm</strong> - Used to install dependencies and run the backend server.</li>
+    <li><strong>Angular CLI</strong> - Used to run the Angular administrator application.</li>
+    <li><strong>Web Browser</strong> - Used to test the Travlr admin interface at <code>http://localhost:4200</code>.</li>
+</ul>
 
-        <p>Install Angular dependencies:</p>
-        <pre><code>cd app_admin
+<p>
+    Since generated dependency folders such as <strong>node_modules</strong> were removed to reduce file size,
+    dependencies must be reinstalled before running the project.
+</p>
+
+<p>Install backend dependencies from the main Travlr project folder:</p>
+<pre><code>npm install</code></pre>
+
+<p>Install Angular dependencies:</p>
+<pre><code>cd app_admin
 npm install</code></pre>
 
-        <p>Start the backend application:</p>
-        <pre><code>npm start</code></pre>
+<p>Start the backend application from the main Travlr project folder:</p>
+<pre><code>npm start</code></pre>
 
-        <p>Start the Angular development server:</p>
-        <pre><code>cd app_admin
+<p>Start the Angular development server in a separate terminal:</p>
+<pre><code>cd app_admin
 ng serve</code></pre>
+
+<p>
+    After both servers are running, open the admin application in a browser:
+</p>
+<pre><code>http://localhost:4200</code></pre>
     </div>
     <h2>Testing and Validation</h2>
 <div class="box">
