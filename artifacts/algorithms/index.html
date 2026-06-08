@@ -141,19 +141,93 @@
     </div>
     
     <h2>Testing and Validation</h2>
-    <div class="box">
-    <p><strong>Purpose:</strong> Verify that the Course Planner loads, sorts, searches, and validates course data correctly.</p>
+<div class="box">
+    <p>
+        The following tests were used to verify the Algorithms and Data Structures enhancement
+        for the CS-300 Course Planner program. These tests confirm that the program loads data,
+        validates input, prints courses in order, and uses the enhanced hash table lookup correctly.
+    </p>
+
+    <h3>1. Run the Program</h3>
     <ol>
-        <li>Open <strong>CoursePlanner.sln</strong> in Visual Studio.</li>
-        <li>Build and run the program using <strong>Ctrl + F5</strong>.</li>
-        <li>Select option 2 or 3 before loading data and confirm the program asks the user to load course data first.</li>
-        <li>Select option 1 and load the CSV file.</li>
-        <li>Select option 2 and confirm the course list prints in alphanumeric order.</li>
-        <li>Select option 3 and search for <code>CSCI300</code>.</li>
-        <li>Search for <code>csci300</code> and confirm lowercase input still works.</li>
-        <li>Search for <code>TEST999</code> and confirm the program returns “Course not found.”</li>
-        <li>Enter non-numeric menu input, such as <code>abc</code>, and confirm the program displays an invalid input message.</li>
+        <li>Open <strong>CoursePlanner.sln</strong> in Visual Studio 2022.</li>
+        <li>Build the solution.</li>
+        <li>Run the program using <strong>Ctrl + F5</strong>.</li>
     </ol>
-    </div>
+    <p><strong>Expected Result:</strong> The menu should display options to load data, print the course list, print a course, and exit.</p>
+
+    <h3>2. Data Not Loaded Validation Test</h3>
+    <ol>
+        <li>Run the program.</li>
+        <li>Before loading the CSV file, choose option <code>2</code> to print the course list.</li>
+        <li>Before loading the CSV file, choose option <code>3</code> to search for a course.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The program should tell the user to load the course data first.</p>
+
+    <h3>3. Load Course Data Test</h3>
+    <ol>
+        <li>Select option <code>1</code>.</li>
+        <li>Press Enter to use the default CSV file name, or type <code>CS 300 ABCU_Advising_Program_Input.csv</code>.</li>
+        <li>Confirm that the program reports the course data loaded successfully.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The CSV file should load without errors.</p>
+
+    <h3>4. Print Course List Test</h3>
+    <ol>
+        <li>After loading the CSV file, select option <code>2</code>.</li>
+        <li>Review the printed course list.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Courses should print in alphanumeric order by course number.</p>
+
+    <h3>5. Valid Course Search Test</h3>
+    <ol>
+        <li>After loading the CSV file, select option <code>3</code>.</li>
+        <li>Search for <code>CSCI300</code>.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The program should display the course title and prerequisites for CSCI300.</p>
+
+    <h3>6. Case-Insensitive Search Test</h3>
+    <ol>
+        <li>Select option <code>3</code>.</li>
+        <li>Search for <code>csci300</code> using lowercase letters.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The program should still find the course because input is converted to uppercase before searching.</p>
+
+    <h3>7. Invalid Course Search Test</h3>
+    <ol>
+        <li>Select option <code>3</code>.</li>
+        <li>Search for <code>TEST999</code>.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The program should display <code>Course not found.</code></p>
+
+    <h3>8. Menu Input Validation Test</h3>
+    <ol>
+        <li>At the main menu, type a non-numeric value such as <code>abc</code>.</li>
+        <li>Then type an invalid numeric option such as <code>7</code>.</li>
+        <li>Then type a valid option such as <code>1</code>, <code>2</code>, <code>3</code>, or <code>9</code>.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Non-numeric input should show an invalid input message, invalid menu numbers should be rejected, and valid menu options should still work.</p>
+
+    <h3>9. CSV Validation Test</h3>
+    <ol>
+        <li>For testing only, add invalid rows to a copy of the CSV file, such as:
+            <ul>
+                <li><code>BADCOURSE</code></li>
+                <li><code>,Missing Course Number</code></li>
+                <li><code>CSCI300,Duplicate Algorithms</code></li>
+            </ul>
+        </li>
+        <li>Run the program and load the test CSV file.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The program should skip incomplete or duplicate course records and continue loading valid records.</p>
+
+    <h3>10. Hash Table Lookup Verification</h3>
+    <ol>
+        <li>Load the course data.</li>
+        <li>Search for a valid course by course number.</li>
+        <li>Confirm that the search returns the correct course without looping through the vector.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The enhanced program should use the <code>unordered_map</code> hash table for faster course lookup while keeping the vector for sorted course printing.</p>
+</div>
 </body>
 </html>
