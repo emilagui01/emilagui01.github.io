@@ -105,24 +105,60 @@
         </p>
 
         <h2>Running the Project</h2>
-        <p>
-            Since generated dependency folders such as <strong>node_modules</strong> were removed to
-            reduce file size, dependencies must be reinstalled before running the project.
-        </p>
+<p>
+    This artifact can be tested through the Travlr backend API, MongoDB database, Angular admin
+    application, and Postman. Unlike the Software Design enhancement, the Database enhancement
+    requires Postman and MongoDB because the goal is to verify backend validation, database behavior,
+    protected API routes, and stored data directly.
+</p>
 
-        <p>Install backend dependencies:</p>
-        <pre><code>npm install</code></pre>
+<h3>Applications and Tools Needed</h3>
+<ul>
+    <li><strong>Visual Studio Code</strong> - Used to open and review the project files.</li>
+    <li><strong>Node.js and npm</strong> - Used to install dependencies and run the Express backend server.</li>
+    <li><strong>Angular CLI</strong> - Used to run the Angular administrator application when testing from the UI.</li>
+    <li><strong>MongoDB / MongoDB Compass</strong> - Used to run the local database and verify stored trip and user records.</li>
+    <li><strong>Postman</strong> - Used to test API requests directly, including valid data, invalid data, JWT-protected routes, and duplicate user registration.</li>
+    <li><strong>Web Browser</strong> - Used to view the Angular admin interface at <code>http://localhost:4200</code>.</li>
+</ul>
 
-        <p>Install Angular dependencies:</p>
-        <pre><code>cd app_admin
+<p>
+    Since generated dependency folders such as <strong>node_modules</strong> were removed to reduce file size,
+    dependencies must be reinstalled before running the project.
+</p>
+
+<p>Start MongoDB locally or confirm the MongoDB service is running.</p>
+
+<p>Install backend dependencies from the main Travlr project folder:</p>
+<pre><code>npm install</code></pre>
+
+<p>Install Angular dependencies:</p>
+<pre><code>cd app_admin
 npm install</code></pre>
 
-        <p>Start the backend application:</p>
-        <pre><code>npm start</code></pre>
+<p>Start the backend application from the main Travlr project folder:</p>
+<pre><code>npm start</code></pre>
 
-        <p>Start the Angular development server:</p>
-        <pre><code>cd app_admin
+<p>Start the Angular development server in a separate terminal:</p>
+<pre><code>cd app_admin
 ng serve</code></pre>
+
+<p>
+    Open the Angular admin application in a browser:
+</p>
+<pre><code>http://localhost:4200</code></pre>
+
+<p>
+    Open Postman to test backend API routes directly:
+</p>
+<pre><code>http://localhost:3000/api/register
+http://localhost:3000/api/login
+http://localhost:3000/api/trips
+http://localhost:3000/api/trips/:tripCode</code></pre>
+
+<p>
+    Open MongoDB Compass to confirm that valid records are saved and invalid records are rejected.
+</p>
     </div>
     <h2>Testing and Validation</h2>
 <div class="box">
