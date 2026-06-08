@@ -95,7 +95,7 @@
             </p>
         </div>
 
-        <h2>Planned Enhancement</h2>
+        <h2>Enhancement Completed</h2>
         <p>
             The planned enhancement for this category focuses on improving the scalability,
             maintainability, and organization of the Travlr application. Planned improvements include
@@ -123,6 +123,20 @@ npm install</code></pre>
         <p>Start the Angular development server:</p>
         <pre><code>cd app_admin
 ng serve</code></pre>
+    </div>
+    <h2>Testing and Validation</h2>
+    <div class="box">
+    <p><strong>Purpose:</strong> Verify that the administrator interface works correctly after the software design enhancement.</p>
+    <ol>
+        <li>Start the backend with <code>npm start</code>.</li>
+        <li>Start the Angular admin application with <code>cd app_admin</code> and <code>ng serve</code>.</li>
+        <li>Open <code>http://localhost:4200</code>.</li>
+        <li>Try to access the Add Trip or Edit Trip route while logged out.</li>
+        <li>Confirm that unauthenticated users are redirected to the login page.</li>
+        <li>Log in and confirm that Add Trip, Edit Trip, and Delete Trip options are available.</li>
+        <li>Submit invalid form data and confirm that validation messages appear.</li>
+        <li>Submit valid form data and confirm the trip is added or updated successfully.</li>
+    </ol>
     </div>
 </body>
 </html>
