@@ -95,9 +95,9 @@
             </p>
         </div>
 
-        <h2>Planned Enhancement</h2>
+        <h2>Enhancement Completed</h2>
         <p>
-            The planned enhancement for this category focuses on improving MongoDB functionality,
+            The enhancement for this category focuses on improving MongoDB functionality,
             query efficiency, validation, and database security. Planned improvements include indexed
             searching, improved validation rules, advanced filtering, query optimization, stronger input
             sanitization, authorization controls for protected database operations, and improved backend
@@ -123,6 +123,21 @@ npm install</code></pre>
         <p>Start the Angular development server:</p>
         <pre><code>cd app_admin
 ng serve</code></pre>
+    </div>
+    <h2>Testing and Validation</h2>
+    <div class="box">
+    <p><strong>Purpose:</strong> Verify that MongoDB, Mongoose validation, controller error handling, and JWT-protected database access work correctly.</p>
+    <ol>
+        <li>Start MongoDB, the backend server, and the Angular admin application.</li>
+        <li>Use Postman to send a valid <code>POST /api/register</code> request and confirm a token is returned.</li>
+        <li>Send the same registration request again and confirm the API returns <code>409 Conflict</code> for duplicate email.</li>
+        <li>Send an invalid email during registration and confirm the API returns <code>400 Bad Request</code>.</li>
+        <li>Use Postman to send a valid <code>POST /api/trips</code> request with a Bearer token and confirm the trip is created.</li>
+        <li>Send invalid trip data and confirm the API returns <code>400 Bad Request</code> instead of crashing the backend.</li>
+        <li>Use <code>PUT /api/trips/:tripCode</code> with valid data and confirm the trip updates successfully.</li>
+        <li>Use invalid update data and confirm MongoDB does not overwrite the valid record.</li>
+        <li>Remove the Bearer token and confirm protected write routes return <code>401 Unauthorized</code>.</li>
+    </ol>
     </div>
 </body>
 </html>
