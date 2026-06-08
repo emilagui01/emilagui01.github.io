@@ -125,19 +125,160 @@ npm install</code></pre>
 ng serve</code></pre>
     </div>
     <h2>Testing and Validation</h2>
-    <div class="box">
-    <p><strong>Purpose:</strong> Verify that MongoDB, Mongoose validation, controller error handling, and JWT-protected database access work correctly.</p>
+<div class="box">
+    <p>
+        The following tests were used to verify the Database enhancement for the Travlr application.
+        These tests confirm that MongoDB, Mongoose validation, controller error handling, user
+        validation, and JWT-protected database access work correctly.
+    </p>
+
+    <h3>1. Start the Required Services</h3>
     <ol>
-        <li>Start MongoDB, the backend server, and the Angular admin application.</li>
-        <li>Use Postman to send a valid <code>POST /api/register</code> request and confirm a token is returned.</li>
-        <li>Send the same registration request again and confirm the API returns <code>409 Conflict</code> for duplicate email.</li>
-        <li>Send an invalid email during registration and confirm the API returns <code>400 Bad Request</code>.</li>
-        <li>Use Postman to send a valid <code>POST /api/trips</code> request with a Bearer token and confirm the trip is created.</li>
-        <li>Send invalid trip data and confirm the API returns <code>400 Bad Request</code> instead of crashing the backend.</li>
-        <li>Use <code>PUT /api/trips/:tripCode</code> with valid data and confirm the trip updates successfully.</li>
-        <li>Use invalid update data and confirm MongoDB does not overwrite the valid record.</li>
-        <li>Remove the Bearer token and confirm protected write routes return <code>401 Unauthorized</code>.</li>
+        <li>Start MongoDB locally or confirm that the MongoDB service is running.</li>
+        <li>Start the backend server with <code>npm start</code>.</li>
+        <li>Start the Angular admin application with <code>cd app_admin</code> and <code>ng serve</code>.</li>
+        <li>Open Postman for API testing.</li>
     </ol>
-    </div>
+    <p><strong>Expected Result:</strong> MongoDB, the Express backend, Angular, and Postman should all be ready for testing.</p>
+
+    <h3>2. Valid User Registration Test</h3>
+    <ol>
+        <li>In Postman, create a <code>POST</code> request to <code>http://localhost:3000/api/register</code>.</li>
+        <li>Use the following JSON body:</li>
+    </ol>
+    <pre><code>{
+  "name": "Database User",
+  "email": "databaseuser@test.com",
+  "password": "password123"
+}</code></pre>
+    <p><strong>Expected Result:</strong> The API should return <code>200 OK</code> with a JWT token.</p>
+
+    <h3>3. Duplicate Email Registration Test</h3>
+    <ol>
+        <li>Send the same registration request again using the same email address.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The API should return <code>409 Conflict</code> with a message stating that a user with this email already exists.</p>
+
+    <h3>4. Invalid Email Registration Test</h3>
+    <ol>
+        <li>Send a <code>POST</code> request to <code>http://localhost:3000/api/register</code>.</li>
+        <li>Use the following JSON body:</li>
+    </ol>
+    <pre><code>{
+  "name": "Database User",
+  "email": "notanemail",
+  "password": "password123"
+}</code></pre>
+    <p><strong>Expected Result:</strong> The API should return <code>400 Bad Request</code> with a user validation error.</p>
+
+    <h3>5. Login and JWT Token Test</h3>
+    <ol>
+        <li>In Postman, create a <code>POST</code> request to <code>http://localhost:3000/api/login</code>.</li>
+        <li>Use valid login credentials.</li>
+        <li>Copy the returned JWT token.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The API should return a valid JWT token that can be used for protected trip requests.</p>
+
+    <h3>6. Valid Trip Creation Test</h3>
+    <ol>
+        <li>Create a <code>POST</code> request to <code>http://localhost:3000/api/trips</code>.</li>
+        <li>In the Authorization tab, choose <strong>Bearer Token</strong> and paste the JWT token.</li>
+        <li>Use the following JSON body:</li>
+    </ol>
+    <pre><code>{
+  "code": "DBTEST2026",
+  "name": "Database Test Trip",
+  "length": "4 nights",
+  "start": "2026-05-07",
+  "resort": "Test Resort",
+  "perPerson": 799.99,
+  "image": "reef1.jpg",
+  "description": "This is a valid database test trip."
+}</code></pre>
+    <p><strong>Expected Result:</strong> The API should return <code>201 Created</code>, and the trip should appear in MongoDB.</p>
+
+    <h3>7. Invalid Trip Creation Test</h3>
+    <ol>
+        <li>Send a <code>POST</code> request to <code>http://localhost:3000/api/trips</code> using the same Bearer token.</li>
+        <li>Use invalid trip data:</li>
+    </ol>
+    <pre><code>{
+  "code": "ab",
+  "name": "x",
+  "length": "y",
+  "start": "",
+  "resort": "z",
+  "perPerson": "abc",
+  "image": "reef1",
+  "description": "short"
+}</code></pre>
+    <p><strong>Expected Result:</strong> The API should return <code>400 Bad Request</code> with a validation error, and the backend server should stay running.</p>
+
+    <h3>8. Single Trip Lookup Test</h3>
+    <ol>
+        <li>Send a <code>GET</code> request to <code>http://localhost:3000/api/trips/DBTEST2026</code>.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The API should return one trip object instead of an array because the backend uses <code>findOne()</code> for single-trip lookup.</p>
+
+    <h3>9. Valid Trip Update Test</h3>
+    <ol>
+        <li>Create a <code>PUT</code> request to <code>http://localhost:3000/api/trips/DBTEST2026</code>.</li>
+        <li>Use the Bearer token for authorization.</li>
+        <li>Use valid updated trip data:</li>
+    </ol>
+    <pre><code>{
+  "code": "DBTEST2026",
+  "name": "Database Test Trip Updated",
+  "length": "5 nights",
+  "start": "2026-05-07",
+  "resort": "Updated Test Resort",
+  "perPerson": 899.99,
+  "image": "reef2.jpg",
+  "description": "This is a valid updated database test trip."
+}</code></pre>
+    <p><strong>Expected Result:</strong> The API should return <code>200 OK</code>, and MongoDB should show the updated trip data.</p>
+
+    <h3>10. Invalid Trip Update Test</h3>
+    <ol>
+        <li>Send a <code>PUT</code> request to <code>http://localhost:3000/api/trips/DBTEST2026</code>.</li>
+        <li>Use the Bearer token for authorization.</li>
+        <li>Use invalid update data:</li>
+    </ol>
+    <pre><code>{
+  "code": "DBTEST2026",
+  "name": "x",
+  "length": "y",
+  "start": "",
+  "resort": "z",
+  "perPerson": "abc",
+  "image": "reef1",
+  "description": "short"
+}</code></pre>
+    <p><strong>Expected Result:</strong> The API should return <code>400 Bad Request</code>, and MongoDB should not overwrite the valid trip record.</p>
+
+    <h3>11. Protected Route With No Token Test</h3>
+    <ol>
+        <li>Send a <code>PUT</code>, <code>POST</code>, or <code>DELETE</code> request to a protected trip route.</li>
+        <li>Set Authorization to <strong>No Auth</strong>.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The API should return <code>401 Unauthorized</code>.</p>
+
+    <h3>12. Protected Route With Bad Token Test</h3>
+    <ol>
+        <li>Send a protected trip request.</li>
+        <li>Set Authorization to <strong>Bearer Token</strong>.</li>
+        <li>Use <code>badtoken123</code> as the token value.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The API should return <code>401 Unauthorized</code>.</p>
+
+    <h3>13. Valid Delete Trip Test</h3>
+    <ol>
+        <li>Create a test trip using the valid POST request.</li>
+        <li>Send a <code>DELETE</code> request to <code>http://localhost:3000/api/trips/DBTEST2026</code>.</li>
+        <li>Use the Bearer token for authorization.</li>
+        <li>Refresh MongoDB Compass or the trip listing page.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The trip should be removed from MongoDB and no longer appear in the application.</p>
+</div>
 </body>
 </html>
