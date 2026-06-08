@@ -114,7 +114,7 @@
             </p>
         </div>
 
-        <h2>Planned Enhancement</h2>
+        <h2>Enhancement Completed</h2>
         <p>
             The planned enhancement for this category focuses on improving searching and sorting
             efficiency by implementing hash tables and binary search trees. The enhancement will also
@@ -138,6 +138,22 @@
             The included CSV file must remain in the project directory so the program can load course
             information correctly.
         </p>
+    </div>
+    
+    <h2>Testing and Validation</h2>
+    <div class="box">
+    <p><strong>Purpose:</strong> Verify that the Course Planner loads, sorts, searches, and validates course data correctly.</p>
+    <ol>
+        <li>Open <strong>CoursePlanner.sln</strong> in Visual Studio.</li>
+        <li>Build and run the program using <strong>Ctrl + F5</strong>.</li>
+        <li>Select option 2 or 3 before loading data and confirm the program asks the user to load course data first.</li>
+        <li>Select option 1 and load the CSV file.</li>
+        <li>Select option 2 and confirm the course list prints in alphanumeric order.</li>
+        <li>Select option 3 and search for <code>CSCI300</code>.</li>
+        <li>Search for <code>csci300</code> and confirm lowercase input still works.</li>
+        <li>Search for <code>TEST999</code> and confirm the program returns “Course not found.”</li>
+        <li>Enter non-numeric menu input, such as <code>abc</code>, and confirm the program displays an invalid input message.</li>
+    </ol>
     </div>
 </body>
 </html>
