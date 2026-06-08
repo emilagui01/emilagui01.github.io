@@ -125,18 +125,104 @@ npm install</code></pre>
 ng serve</code></pre>
     </div>
     <h2>Testing and Validation</h2>
-    <div class="box">
-    <p><strong>Purpose:</strong> Verify that the administrator interface works correctly after the software design enhancement.</p>
+<div class="box">
+    <p>
+        The following tests were used to verify the Software Engineering and Design enhancement
+        for the Travlr administrator application. These tests confirm that route protection,
+        login flow, validation, CRUD functionality, and user-facing error handling work correctly.
+    </p>
+
+    <h3>1. Route Guard Protection Test</h3>
     <ol>
-        <li>Start the backend with <code>npm start</code>.</li>
+        <li>Start the backend server with <code>npm start</code>.</li>
         <li>Start the Angular admin application with <code>cd app_admin</code> and <code>ng serve</code>.</li>
-        <li>Open <code>http://localhost:4200</code>.</li>
-        <li>Try to access the Add Trip or Edit Trip route while logged out.</li>
-        <li>Confirm that unauthenticated users are redirected to the login page.</li>
-        <li>Log in and confirm that Add Trip, Edit Trip, and Delete Trip options are available.</li>
-        <li>Submit invalid form data and confirm that validation messages appear.</li>
-        <li>Submit valid form data and confirm the trip is added or updated successfully.</li>
+        <li>Open the application at <code>http://localhost:4200</code>.</li>
+        <li>Make sure the user is logged out.</li>
+        <li>Manually type <code>http://localhost:4200/add-trip</code> into the browser.</li>
+        <li>Confirm that the application redirects to the login page.</li>
+        <li>Repeat the test with <code>http://localhost:4200/edit-trip</code>.</li>
     </ol>
-    </div>
+    <p><strong>Expected Result:</strong> Logged-out users should not be able to access protected admin routes directly.</p>
+
+    <h3>2. Login Flow Test</h3>
+    <ol>
+        <li>Navigate to the Login page.</li>
+        <li>Enter valid login credentials.</li>
+        <li>Submit the form.</li>
+        <li>Confirm that the JWT token is saved and the user is redirected back to the trip listing page.</li>
+        <li>Log out and try logging in with invalid credentials.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Valid login should redirect to the trip listing page. Invalid login should display a user-facing error message.</p>
+
+    <h3>3. Add Trip Validation Test</h3>
+    <ol>
+        <li>Log in as an authenticated user.</li>
+        <li>Go to the Add Trip page.</li>
+        <li>Enter invalid values such as:
+            <ul>
+                <li><code>ab</code> for Code</li>
+                <li><code>hi</code> for Name</li>
+                <li><code>x</code> for Length</li>
+                <li>blank Start Date</li>
+                <li><code>aa</code> for Resort</li>
+                <li><code>abc</code> for Per Person</li>
+                <li><code>reef1</code> for Image Name</li>
+                <li><code>short</code> for Description</li>
+            </ul>
+        </li>
+        <li>Click Save.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The form should display validation messages and prevent invalid trip data from being submitted.</p>
+
+    <h3>4. Add Trip Valid Submission Test</h3>
+    <ol>
+        <li>Go to the Add Trip page.</li>
+        <li>Enter valid trip data:
+            <ul>
+                <li>Code: <code>TEST2026</code></li>
+                <li>Name: <code>Test Trip</code></li>
+                <li>Length: <code>4 nights</code></li>
+                <li>Start: <code>2026-05-07</code></li>
+                <li>Resort: <code>Test Resort</code></li>
+                <li>Per Person: <code>799.99</code></li>
+                <li>Image Name: <code>reef1.jpg</code></li>
+                <li>Description: <code>This is a test trip description.</code></li>
+            </ul>
+        </li>
+        <li>Click Save.</li>
+        <li>Confirm that the trip appears in the trip listing.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> Valid trip data should save successfully and appear on the trip listing page.</p>
+
+    <h3>5. Edit Trip Test</h3>
+    <ol>
+        <li>Log in as an authenticated user.</li>
+        <li>Click Edit Trip on an existing trip.</li>
+        <li>Confirm that the Code field is read-only.</li>
+        <li>Update fields such as Name, Length, Resort, Price, Image, or Description.</li>
+        <li>Click Save.</li>
+        <li>Confirm that the trip updates successfully on the trip listing page.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The trip should update successfully, and the trip code should not be accidentally changed.</p>
+
+    <h3>6. Delete Trip Test</h3>
+    <ol>
+        <li>Log in as an authenticated user.</li>
+        <li>Create a test trip or choose an existing test trip.</li>
+        <li>Click Delete Trip.</li>
+        <li>Confirm the browser confirmation popup appears.</li>
+        <li>Click OK.</li>
+        <li>Confirm the trip is removed from the trip listing.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The selected trip should be deleted only after confirmation.</p>
+
+    <h3>7. Error Handling Test</h3>
+    <ol>
+        <li>Stop the backend server while the Angular frontend is still running.</li>
+        <li>Try to add or edit a trip.</li>
+        <li>Observe the error message shown in the interface.</li>
+    </ol>
+    <p><strong>Expected Result:</strong> The application should display a clear error message instead of only logging the error in the browser console.</p>
+</div>
 </body>
 </html>
