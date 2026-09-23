@@ -13,7 +13,7 @@ toward a career in cybersecurity.
 
 | Lab | Focus | Status |
 | --- | --- | --- |
-| Windows Server 2022 Active Directory | Domain controller, DNS, DHCP, Group Policy, user administration | In progress |
+| Windows Server 2022 Active Directory | Domain controller, DNS, DHCP, Group Policy, user administration | Planned |
 | Help Desk Ticketing System | Queues, SLA tiers, knowledge base documentation | Planned |
 | PowerShell Automation | Bulk AD user provisioning, onboarding automation | Planned |
 
