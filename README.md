@@ -20,7 +20,7 @@ toward a career in cybersecurity.
 ## Certifications
 
 * Microsoft Certified: Azure Fundamentals (AZ-900) - Earned September 2026 ([verify](https://learn.microsoft.com/api/credentials/share/en-us/emilagui01-2142/C2607BB8BFF4CE72?sharingId=C0D204C72872EC5B))
-* CompTIA Network+ - Earned August 2026
+* CompTIA Network+ - Earned August 2026 ([verify](https://www.credly.com/badges/2a0773e8-3c62-4146-a724-7d849d03ac85/public_url))
 * CompTIA Security+ - In progress
 * Cisco CCNA - Planned
 * GIAC GCIH - Long-term goal
