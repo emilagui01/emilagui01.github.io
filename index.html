@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emil Aguirre Herrera - IT and Cybersecurity Portfolio</title>
+    <meta name="description" content="Emil Aguirre Herrera - Computer Science graduate, CompTIA Network+ and Microsoft Azure Fundamentals certified, seeking entry-level IT support roles.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --floor: #07090c;
+            --cabinet: #14181d;
+            --rail: #23282f;
+            --rail-hole: #0a0c0f;
+            --metal: #2c323a;
+            --metal-hi: #3a414b;
+            --green: #3dff8b;
+            --amber: #ffb547;
+            --cyan: #62d0ff;
+            --mono: "JetBrains Mono", "Cascadia Code", Consolas, "SF Mono", Menlo, monospace;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(60, 130, 190, 0.18), transparent 55%),
+                var(--floor);
+            color: #d6dde5;
+            font-family: var(--mono);
+            font-size: 15px;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ================= Rack cabinet ================= */
+        .rack {
+            position: relative;
+            max-width: 1000px;
+            margin: 28px auto 40px;
+            background: var(--cabinet);
+            border: 2px solid #2a3038;
+            border-radius: 6px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8), 0 0 0 6px #0d1013;
+            padding: 0 58px;
+        }
+
+        /* mounting rails with square holes */
+        .rack::before,
+        .rack::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 34px;
+            background-color: var(--rail);
+            background-image: linear-gradient(var(--rail-hole) 0 10px, transparent 10px);
+            background-size: 10px 22px;
+            background-position: center 8px;
+            background-repeat: repeat-y;
+            border-left: 1px solid #30363e;
+            border-right: 1px solid #0c0e11;
+        }
+
+        .rack::before { left: 12px; }
+        .rack::after { right: 12px; }
+
+        .rack-top {
+            margin: 0 -58px;
+            padding: 12px 20px;
+            border-bottom: 2px solid #0c0e11;
+            background:
+                repeating-linear-gradient(90deg, #0d1013 0 3px, transparent 3px 9px) center / 60% 10px no-repeat,
+                linear-gradient(#262c34, #1b2026);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #8d98a5;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rack-top .pwr { display: flex; align-items: center; gap: 8px; }
+
+        .led {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green);
+        }
+
+        .rack-bottom {
+            margin: 0 -58px;
+            height: 26px;
+            border-top: 2px solid #0c0e11;
+            background: linear-gradient(#1b2026, #262c34);
+            position: relative;
+            z-index: 1;
+        }
+
+        .bay { position: relative; z-index: 1; padding: 22px 0; }
+
+        /* ================= Rack devices (clipart) ================= */
+        .device { display: block; width: 100%; height: auto; }
+        .device.dim { opacity: 0.9; }
+
+        svg .blink { animation: blink 1.3s infinite steps(2, jump-none); }
+        @keyframes blink { 50% { opacity: 0.18; } }
+
+        /* ================= Patch-panel navigation ================= */
+        .panel {
+            background: linear-gradient(#2d333b, #22272e);
+            border: 1px solid #3a414b;
+            border-radius: 3px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 0 #0c0e11;
+        }
+
+        .panel .label {
+            font-size: 11px;
+            color: #8d98a5;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .panel nav { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; }
+
+        .jack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            text-decoration: none;
+            color: #d6dde5;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            padding: 4px 6px;
+            border-radius: 3px;
+        }
+
+        .jack::before {
+            content: "";
+            width: 26px;
+            height: 20px;
+            background: #0b0d10;
+            border: 2px solid #4a525d;
+            border-radius: 2px;
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 70% 75%, 70% 100%, 30% 100%, 30% 75%, 0 75%);
+        }
+
+        .jack:hover, .jack:focus-visible { background: rgba(98, 208, 255, 0.12); outline: none; color: var(--cyan); }
+        .jack:hover::before, .jack:focus-visible::before { border-color: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+
+        /* ================= Monitors ================= */
+        .station { display: flex; flex-direction: column; align-items: center; }
+
+        .monitor {
+            width: 100%;
+            background: #1a1d22;
+            border: 1px solid #353b44;
+            border-radius: 12px;
+            padding: 12px 12px 22px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .monitor::after {           /* power light on the bezel */
+            content: "";
+            position: absolute;
+            bottom: 8px;
+            right: 18px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 6px var(--cyan);
+        }
+
+        .neck {
+            width: 70px;
+            height: 26px;
+            background: linear-gradient(90deg, #22272e, #3a414b, #22272e);
+        }
+
+        .foot {
+            width: 220px;
+            height: 10px;
+            border-radius: 6px 6px 0 0;
+            background: #3a414b;
+        }
+
+        .shelf {
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(#3a414b, #242930);
+            border-radius: 2px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        /* terminal window */
+        .win { border-radius: 6px; overflow: hidden; border: 1px solid #000; }
+
+        .win-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            height: 32px;
+            padding: 0 0 0 12px;
+            font-size: 12px;
+            font-family: "Segoe UI", system-ui, sans-serif;
+        }
+
+        .win-bar .title { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        .win-bar .ctrl { display: flex; height: 100%; }
+        .win-bar .ctrl i {
+            width: 42px;
+            display: grid;
+            place-items: center;
+            font-style: normal;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        .win-bar .icon {
+            width: 16px;
+            height: 12px;
+            border-radius: 2px;
+            font-size: 8px;
+            line-height: 12px;
+            text-align: center;
+            font-family: var(--mono);
+            font-weight: 800;
+        }
+
+        .win-body { padding: 18px 20px 22px; min-height: 120px; }
+        .win-body p { margin: 0 0 10px; }
+
+        .prompt { margin: 0 0 10px; }
+        .prompt + .prompt { margin-top: 18px; }
+
+        /* Command Prompt */
+        .cmd .win-bar { background: #f3f3f3; color: #111; }
+        .cmd .win-bar .icon { background: #0c0c0c; color: #ccc; }
+        .cmd .win-body { background: #0c0c0c; color: #cccccc; }
+        .cmd .ps1 { color: #f2f2f2; }
+
+        /* PowerShell */
+        .pwsh .win-bar { background: #1f2d4d; color: #e8ecf5; }
+        .pwsh .win-bar .icon { background: #2671be; color: #fff; }
+        .pwsh .win-body { background: #012456; color: #eeedf0; }
+        .pwsh .ps1 { color: #fff; }
+        .pwsh .kw { color: #ffff66; }
+        .pwsh .arg { color: #9ad0ff; }
+
+        /* Bash */
+        .bash .win-bar { background: #2b2b2b; color: #ddd; padding-left: 12px; }
+        .bash .win-bar .dots { display: flex; gap: 7px; }
+        .bash .win-bar .dots b { width: 12px; height: 12px; border-radius: 50%; display: block; }
+        .bash .win-bar .title { text-align: center; margin-right: 60px; }
+        .bash .win-body { background: #2c001e; color: #e8e2e6; }
+        .bash .u { color: #8ae234; font-weight: 600; }
+        .bash .p { color: #729fcf; font-weight: 600; }
+
+        h1 {
+            margin: 6px 0 2px;
+            font-size: clamp(30px, 6vw, 50px);
+            font-weight: 800;
+            color: var(--green);
+            text-shadow: 0 0 16px rgba(61, 255, 139, 0.4);
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+        }
+
+        h2 { font-size: 15px; margin: 0 0 12px; font-weight: 600; }
+
+        .sub { color: #9aa3ad; margin: 0 0 4px; }
+
+        a { color: var(--cyan); }
+        a:hover { color: #a6e6ff; }
+
+        .btn {
+            display: inline-block;
+            margin-top: 4px;
+            padding: 7px 16px;
+            border: 1px solid var(--green);
+            border-radius: 3px;
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn:hover, .btn:focus-visible { background: var(--green); color: #04120a; outline: none; }
+
+        /* PowerShell table */
+        table { border-collapse: collapse; width: 100%; font-size: 14px; }
+        th { text-align: left; font-weight: 600; padding: 0 16px 0 0; white-space: nowrap; }
+        th span { display: block; letter-spacing: 1px; }
+        td { padding: 5px 16px 5px 0; vertical-align: top; }
+        .pwsh a { color: #9ad0ff; }
+        .ok { color: #7dff9e; font-weight: 600; }
+        .wip { color: #9ad0ff; font-weight: 600; }
+        .plan { color: #ffd479; font-weight: 600; }
+
+        .lab {
+            border-left: 3px solid #ad7fa8;
+            padding: 6px 0 6px 12px;
+            margin: 0 0 14px;
+        }
+        .lab h3 { margin: 0 0 2px; font-size: 15px; color: #fff; }
+        .lab p { margin: 0; color: #c9bcc4; }
+        .bash .plan { color: #fce94f; }
+
+        .kv { list-style: none; padding: 0; margin: 0; }
+        .kv li { display: grid; grid-template-columns: 100px 1fr; gap: 8px; padding: 3px 0; }
+        .kv .k { color: #ad7fa8; }
+        .bash a { color: #87c3ff; }
+
+        .cursor {
+            display: inline-block;
+            width: 9px;
+            height: 1.1em;
+            vertical-align: text-bottom;
+            background: currentColor;
+            animation: blink 1s infinite steps(2, jump-none);
+        }
+
+        section { scroll-margin-top: 16px; }
+
+        footer {
+            text-align: center;
+            color: #6b7581;
+            font-size: 12px;
+            padding: 6px 0 26px;
+        }
+
+        /* ================= Responsive ================= */
+        @media (max-width: 720px) {
+            body { font-size: 13.5px; }
+            .rack { margin: 0; border-radius: 0; padding: 0 22px; box-shadow: none; }
+            .rack::before, .rack::after { width: 14px; }
+            .rack::before { left: 4px; }
+            .rack::after { right: 4px; }
+            .rack-top, .rack-bottom { margin: 0 -22px; }
+            .panel { flex-direction: column; align-items: flex-start; }
+            .monitor { padding: 6px 6px 16px; border-radius: 8px; }
+            .win-body { padding: 14px 12px 16px; }
+            .win-bar .ctrl i { width: 30px; }
+            .bash .win-bar .title { margin-right: 0; }
+            table, thead, tbody, tr, th, td { display: block; }
+            thead { display: none; }
+            tr { padding: 6px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.15); }
+            td { padding: 0; }
+            .kv li { grid-template-columns: 1fr; gap: 0; }
+            .rack-top .model { display: none; }
+            .rack-top { background: linear-gradient(#262c34, #1b2026); }
+            td.na { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            svg .blink, .cursor { animation: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        @media print {
+            body { background: #fff; color: #000; }
+            .rack { box-shadow: none; border: none; padding: 0; background: #fff; }
+            .rack::before, .rack::after, .rack-top, .rack-bottom, .device, .panel, .neck, .foot, .shelf, .win-bar, .cursor { display: none; }
+            .monitor { box-shadow: none; border: none; padding: 0; }
+            .win-body { background: #fff !important; color: #000 !important; }
+            h1 { color: #000; text-shadow: none; }
+        }
+    </style>
+</head>
+
+<body>
+<div class="rack">
+
+    <div class="rack-top">
+        <span class="pwr"><i class="led" aria-hidden="true"></i> RACK A1 &middot; ONLINE</span>
+        <span class="model">emilagui01.github.io</span>
+    </div>
+
+    <!-- Patch panel navigation -->
+    <div class="bay">
+        <div class="panel">
+            <span class="label">PATCH PANEL &middot; PP-01</span>
+            <nav aria-label="Sections">
+                <a class="jack" href="resume.pdf" target="_blank" rel="noopener">RESUME</a>
+                <a class="jack" href="#certifications">CERTS</a>
+                <a class="jack" href="#labs">LABS</a>
+                <a class="jack" href="#capstone">CAPSTONE</a>
+                <a class="jack" href="#contact">CONTACT</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Screen 1: Command Prompt / about -->
+    <section class="bay" id="about">
+        <div class="station">
+            <div class="monitor">
+                <div class="win cmd">
+                    <div class="win-bar">
+                        <span class="icon" aria-hidden="true">C:\</span>
+                        <span class="title">Command Prompt</span>
+                        <span class="ctrl" aria-hidden="true"><i>&#8212;</i><i>&#9744;</i><i>&#10005;</i></span>
+                    </div>
+                    <div class="win-body">
+                        <p class="prompt"><span class="ps1">C:\Users\Emil&gt;</span> whoami</p>
+                        <h1>Emil Aguirre Herrera</h1>
+                        <p class="sub">IT Support &amp; Cybersecurity &middot; Austin, Arkansas</p>
+
+                        <p class="prompt"><span class="ps1">C:\Users\Emil&gt;</span> type about.txt</p>
+                        <p>
+                            Computer Science graduate from Southern New Hampshire University, and CompTIA Network+
+                            and Microsoft Azure Fundamentals (AZ-900) certified IT support candidate working toward
+                            a career in cybersecurity. This portfolio collects my lab work, certifications, and
+                            software projects.
+                        </p>
+                        <a class="btn" href="resume.pdf" target="_blank" rel="noopener">&gt; start resume.pdf</a>
+                    </div>
+                </div>
+            </div>
+            <div class="neck"></div><div class="foot"></div><div class="shelf"></div>
+        </div>
+    </section>
+
+    <!-- Device: 24-port switch -->
+    <div class="bay"><svg class="device" id="switch" viewBox="0 0 880 70" role="img" aria-label="Illustration of a network switch"></svg></div>
+
+    <!-- Screen 2: PowerShell / certifications -->
+    <section class="bay" id="certifications">
+        <div class="station">
+            <div class="monitor">
+                <div class="win pwsh">
+                    <div class="win-bar">
+                        <span class="icon" aria-hidden="true">&gt;_</span>
+                        <span class="title">Windows PowerShell</span>
+                        <span class="ctrl" aria-hidden="true"><i>&#8212;</i><i>&#9744;</i><i>&#10005;</i></span>
+                    </div>
+                    <div class="win-body">
+                        <p class="prompt"><span class="ps1">PS C:\Users\Emil&gt;</span> <span class="kw">Get-Certification</span> | <span class="kw">Format-Table</span> <span class="arg">-AutoSize</span></p>
+                        <h2 class="sr-only" style="position:absolute;left:-9999px">Certifications</h2>
+                        <table>
+                            <thead>
+                                <tr><th><span>Name</span>----</th><th><span>Status</span>------</th><th><span>Earned</span>------</th><th><span>Verify</span>------</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Microsoft Certified: Azure Fundamentals (AZ-900)</td>
+                                    <td class="ok">Earned</td>
+                                    <td>Sep 2026</td>
+                                    <td><a href="https://learn.microsoft.com/api/credentials/share/en-us/emilagui01-2142/C2607BB8BFF4CE72?sharingId=C0D204C72872EC5B" target="_blank" rel="noopener">Microsoft Learn</a></td>
+                                </tr>
+                                <tr>
+                                    <td>CompTIA Network+</td>
+                                    <td class="ok">Earned</td>
+                                    <td>Aug 2026</td>
+                                    <td><a href="https://www.credly.com/badges/2a0773e8-3c62-4146-a724-7d849d03ac85/public_url" target="_blank" rel="noopener">Credly</a></td>
+                                </tr>
+                                <tr><td>CompTIA Security+</td><td class="wip">Studying</td><td class="na">&#8212;</td><td class="na">&#8212;</td></tr>
+                                <tr><td>Cisco CCNA</td><td class="plan">Planned</td><td class="na">&#8212;</td><td class="na">&#8212;</td></tr>
+                                <tr><td>GIAC GCIH</td><td class="plan">Goal</td><td class="na">&#8212;</td><td class="na">&#8212;</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="neck"></div><div class="foot"></div><div class="shelf"></div>
+        </div>
+    </section>
+
+    <!-- Device: 2U server -->
+    <div class="bay"><svg class="device" id="server" viewBox="0 0 880 110" role="img" aria-label="Illustration of a rack server"></svg></div>
+
+    <!-- Screen 3: Bash / labs -->
+    <section class="bay" id="labs">
+        <div class="station">
+            <div class="monitor">
+                <div class="win bash">
+                    <div class="win-bar">
+                        <span class="dots" aria-hidden="true"><b style="background:#ff5f56"></b><b style="background:#ffbd2e"></b><b style="background:#27c93f"></b></span>
+                        <span class="title">emil@homelab: ~/labs</span>
+                    </div>
+                    <div class="win-body">
+                        <p class="prompt"><span class="u">emil@homelab</span>:<span class="p">~/labs</span>$ ./status.sh</p>
+                        <div class="lab">
+                            <h3>Windows Server 2022 Active Directory Lab <span class="plan">[PLANNED]</span></h3>
+                            <p>A virtualized Windows domain to practice day-to-day help desk work: domain controller
+                                setup, DNS and DHCP, organizational units, Group Policy, and end-user account
+                                troubleshooting.</p>
+                        </div>
+                        <div class="lab">
+                            <h3>Help Desk Ticketing System Deployment <span class="plan">[PLANNED]</span></h3>
+                            <p>A self-hosted ticketing system with departmental queues, priority tiers, SLA targets,
+                                and a knowledge base documenting recurring issues and their fixes.</p>
+                        </div>
+                        <div class="lab">
+                            <h3>PowerShell Automation Scripts <span class="plan">[PLANNED]</span></h3>
+                            <p>Scripts for bulk Active Directory user provisioning from CSV input and automated
+                                new-hire onboarding: account creation, security group assignment, and home folder setup.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="neck"></div><div class="foot"></div><div class="shelf"></div>
+        </div>
+    </section>
+
+    <!-- Device: firewall / router -->
+    <div class="bay"><svg class="device" id="firewall" viewBox="0 0 880 70" role="img" aria-label="Illustration of a firewall appliance"></svg></div>
+
+    <!-- Screen 4: Command Prompt / capstone -->
+    <section class="bay" id="capstone">
+        <div class="station">
+            <div class="monitor">
+                <div class="win cmd">
+                    <div class="win-bar">
+                        <span class="icon" aria-hidden="true">C:\</span>
+                        <span class="title">Command Prompt</span>
+                        <span class="ctrl" aria-hidden="true"><i>&#8212;</i><i>&#9744;</i><i>&#10005;</i></span>
+                    </div>
+                    <div class="win-body">
+                        <p class="prompt"><span class="ps1">C:\Users\Emil&gt;</span> cd capstone &amp;&amp; type README.txt</p>
+                        <p><strong style="color:#fff">CS-499 Computer Science Capstone ePortfolio</strong> &middot; SNHU</p>
+                        <p>
+                            I enhanced and documented three artifacts across software engineering and design,
+                            algorithms and data structures, and databases, with a professional self-assessment,
+                            a recorded code review, per-artifact enhancement writeups, and documented test procedures.
+                        </p>
+                        <a class="btn" href="capstone/">&gt; start capstone\</a>
+                    </div>
+                </div>
+            </div>
+            <div class="neck"></div><div class="foot"></div><div class="shelf"></div>
+        </div>
+    </section>
+
+    <!-- Device: second switch -->
+    <div class="bay"><svg class="device" id="switch2" viewBox="0 0 880 70" role="img" aria-label="Illustration of a network switch"></svg></div>
+
+    <!-- Screen 5: Bash / contact -->
+    <section class="bay" id="contact">
+        <div class="station">
+            <div class="monitor">
+                <div class="win bash">
+                    <div class="win-bar">
+                        <span class="dots" aria-hidden="true"><b style="background:#ff5f56"></b><b style="background:#ffbd2e"></b><b style="background:#27c93f"></b></span>
+                        <span class="title">emil@homelab: ~</span>
+                    </div>
+                    <div class="win-body">
+                        <p class="prompt"><span class="u">emil@homelab</span>:<span class="p">~</span>$ cat contact.txt</p>
+                        <ul class="kv">
+                            <li><span class="k">email</span><a href="mailto:emilagui01@gmail.com">emilagui01@gmail.com</a></li>
+                            <li><span class="k">linkedin</span><a href="https://www.linkedin.com/in/emilagui01" target="_blank" rel="noopener">linkedin.com/in/emilagui01</a></li>
+                            <li><span class="k">github</span><a href="https://github.com/emilagui01" target="_blank" rel="noopener">github.com/emilagui01</a></li>
+                            <li><span class="k">resume</span><a href="resume.pdf" target="_blank" rel="noopener">resume.pdf</a></li>
+                        </ul>
+                        <p class="prompt" style="margin-top:18px"><span class="u">emil@homelab</span>:<span class="p">~</span>$ <span class="cursor" aria-hidden="true"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="neck"></div><div class="foot"></div><div class="shelf"></div>
+        </div>
+    </section>
+
+    <!-- Device: UPS -->
+    <div class="bay"><svg class="device" id="ups" viewBox="0 0 880 90" role="img" aria-label="Illustration of a battery backup unit"></svg></div>
+
+    <footer>Emil Aguirre Herrera &middot; Austin, Arkansas</footer>
+    <div class="rack-bottom"></div>
+</div>
+
+<script>
+    // Draw the rack hardware illustrations. These are decorative; all content above is plain HTML.
+    var NS = 'http://www.w3.org/2000/svg';
+    function el(parent, tag, attrs, text) {
+        var e = document.createElementNS(NS, tag);
+        for (var k in attrs) e.setAttribute(k, attrs[k]);
+        if (text) e.textContent = text;
+        parent.appendChild(e);
+        return e;
+    }
+    function chassis(svg, h, label) {
+        el(svg, 'rect', { x: 0, y: 0, width: 880, height: h, rx: 4, fill: '#2c323a', stroke: '#3a414b' });
+        el(svg, 'rect', { x: 0, y: 0, width: 880, height: 3, fill: '#3f4751' });
+        // rack ears with screws
+        [[0, 34], [846, 34]].forEach(function (ear) {
+            el(svg, 'rect', { x: ear[0], y: 0, width: ear[1], height: h, fill: '#353c45' });
+            el(svg, 'circle', { cx: ear[0] + 17, cy: 14, r: 5, fill: '#1a1e23', stroke: '#565f6b' });
+            el(svg, 'circle', { cx: ear[0] + 17, cy: h - 14, r: 5, fill: '#1a1e23', stroke: '#565f6b' });
+        });
+        el(svg, 'text', { x: 48, y: 18, fill: '#aab4bf', 'font-size': 11, 'font-family': 'JetBrains Mono, monospace', 'letter-spacing': 1 }, label);
+    }
+    function led(svg, x, y, color, r) {
+        var c = el(svg, 'circle', { cx: x, cy: y, r: r || 3, fill: color, 'class': Math.random() > 0.25 ? 'blink' : '' });
+        c.style.animationDuration = (0.4 + Math.random() * 2).toFixed(2) + 's';
+        c.style.animationDelay = (-Math.random() * 2).toFixed(2) + 's';
+        c.style.filter = 'drop-shadow(0 0 3px ' + color + ')';
+    }
+    function pick() { var r = Math.random(); return r > 0.85 ? '#ffb547' : '#3dff8b'; }
+
+    function drawSwitch(id, label) {
+        var s = document.getElementById(id); if (!s) return;
+        chassis(s, 70, label);
+        for (var i = 0; i < 24; i++) {
+            var col = Math.floor(i / 2), row = i % 2;
+            var x = 150 + col * 44 + Math.floor(col / 6) * 14, y = 12 + row * 28;
+            el(s, 'rect', { x: x, y: y, width: 30, height: 20, rx: 2, fill: '#0b0d10', stroke: '#4a525d' });
+            el(s, 'rect', { x: x + 10, y: y + 15, width: 10, height: 5, fill: '#2c323a' });
+            if (Math.random() > 0.3) led(s, x + 5, y + 4, pick(), 2);
+        }
+        // uplink SFP ports
+        for (var j = 0; j < 4; j++) {
+            el(s, 'rect', { x: 720 + j * 28, y: 26, width: 22, height: 14, rx: 1, fill: '#0b0d10', stroke: '#6b7581' });
+            led(s, 731 + j * 28, 20, '#62d0ff', 2);
+        }
+        el(s, 'text', { x: 48, y: 58, fill: '#6b7581', 'font-size': 10, 'font-family': 'JetBrains Mono, monospace' }, '24x 1GbE  4x SFP+');
+        led(s, 60, 36, '#3dff8b', 3); led(s, 76, 36, '#3dff8b', 3); led(s, 92, 36, '#62d0ff', 3);
+    }
+
+    function drawServer() {
+        var s = document.getElementById('server'); if (!s) return;
+        chassis(s, 110, 'SRV-DC01');
+        // drive bays
+        for (var i = 0; i < 8; i++) {
+            var x = 150 + i * 62;
+            el(s, 'rect', { x: x, y: 18, width: 54, height: 76, rx: 3, fill: '#1c2026', stroke: '#4a525d' });
+            for (var g = 0; g < 6; g++) el(s, 'rect', { x: x + 8, y: 30 + g * 8, width: 38, height: 3, fill: '#0b0d10' });
+            el(s, 'rect', { x: x + 6, y: 80, width: 42, height: 8, rx: 2, fill: '#3a414b' });
+            led(s, x + 44, 24, Math.random() > 0.8 ? '#62d0ff' : '#3dff8b', 2.5);
+        }
+        // vents
+        for (var v = 0; v < 9; v++) el(s, 'rect', { x: 668, y: 22 + v * 8, width: 110, height: 3, rx: 1, fill: '#15181c' });
+        // power button
+        el(s, 'circle', { cx: 810, cy: 55, r: 12, fill: '#15181c', stroke: '#4a525d' });
+        led(s, 810, 55, '#3dff8b', 4);
+        el(s, 'text', { x: 48, y: 98, fill: '#6b7581', 'font-size': 10, 'font-family': 'JetBrains Mono, monospace' }, '2U');
+    }
+
+    function drawFirewall() {
+        var s = document.getElementById('firewall'); if (!s) return;
+        chassis(s, 70, 'FW-EDGE');
+        el(s, 'rect', { x: 150, y: 16, width: 150, height: 38, rx: 3, fill: '#0a1a12', stroke: '#2f6b4a' });
+        el(s, 'text', { x: 162, y: 34, fill: '#3dff8b', 'font-size': 11, 'font-family': 'JetBrains Mono, monospace' }, 'STATUS: SECURE');
+        el(s, 'text', { x: 162, y: 48, fill: '#3dff8b', 'font-size': 11, 'font-family': 'JetBrains Mono, monospace', 'class': 'blink' }, 'WAN  LINK UP');
+        ['WAN', 'LAN1', 'LAN2', 'LAN3', 'DMZ', 'MGMT'].forEach(function (name, i) {
+            var x = 340 + i * 56;
+            el(s, 'rect', { x: x, y: 20, width: 32, height: 22, rx: 2, fill: '#0b0d10', stroke: name === 'WAN' ? '#ff6b6b' : '#4a525d' });
+            el(s, 'text', { x: x + 16, y: 56, fill: '#8d98a5', 'font-size': 9, 'text-anchor': 'middle', 'font-family': 'JetBrains Mono, monospace' }, name);
+            led(s, x + 5, 25, pick(), 2);
+        });
+        led(s, 740, 35, '#3dff8b', 3); led(s, 760, 35, '#ffb547', 3); led(s, 780, 35, '#3dff8b', 3);
+        el(s, 'text', { x: 48, y: 58, fill: '#6b7581', 'font-size': 10, 'font-family': 'JetBrains Mono, monospace' }, 'NGFW');
+    }
+
+    function drawUPS() {
+        var s = document.getElementById('ups'); if (!s) return;
+        chassis(s, 90, 'UPS-01');
+        el(s, 'rect', { x: 150, y: 20, width: 170, height: 50, rx: 3, fill: '#0b1520', stroke: '#2e5a80' });
+        el(s, 'text', { x: 162, y: 40, fill: '#62d0ff', 'font-size': 12, 'font-family': 'JetBrains Mono, monospace' }, 'BATTERY 100%');
+        el(s, 'text', { x: 162, y: 58, fill: '#62d0ff', 'font-size': 12, 'font-family': 'JetBrains Mono, monospace' }, 'LOAD     37%');
+        for (var b = 0; b < 10; b++) el(s, 'rect', { x: 350 + b * 14, y: 36, width: 10, height: 18, rx: 1, fill: b < 4 ? '#3dff8b' : '#1c2026' });
+        for (var v = 0; v < 6; v++) el(s, 'rect', { x: 560, y: 22 + v * 8, width: 220, height: 3, rx: 1, fill: '#15181c' });
+        el(s, 'circle', { cx: 810, cy: 45, r: 12, fill: '#15181c', stroke: '#4a525d' });
+        led(s, 810, 45, '#3dff8b', 4);
+    }
+
+    drawSwitch('switch', 'SW-CORE-01');
+    drawSwitch('switch2', 'SW-ACCESS-02');
+    drawServer();
+    drawFirewall();
+    drawUPS();
+</script>
+</body>
+</html>
