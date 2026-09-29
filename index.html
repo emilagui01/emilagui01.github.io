@@ -320,6 +320,9 @@
         }
         .lab h3 { margin: 0 0 2px; font-size: 15px; color: #fff; }
         .lab p { margin: 0; color: #c9bcc4; }
+        .lab .go { display: inline-block; margin-top: 6px; font-weight: 600; text-decoration: none; }
+        .lab .go:hover, .lab .go:focus-visible { text-decoration: underline; }
+        .bash .ok { color: #8ae234; }
         .bash .plan { color: #fce94f; }
 
         .kv { list-style: none; padding: 0; margin: 0; }
@@ -496,15 +499,19 @@
                     <div class="win-body">
                         <p class="prompt"><span class="u">emil@homelab</span>:<span class="p">~/labs</span>$ ./status.sh</p>
                         <div class="lab">
-                            <h3>Windows Server 2022 Active Directory Lab <span class="plan">[IN PROGRESS]</span></h3>
-                            <p>A virtualized Windows domain to practice day-to-day help desk work: domain controller
-                                setup, DNS and DHCP, organizational units, Group Policy, and end-user account
-                                troubleshooting.</p>
+                            <h3>Windows Server 2022 Active Directory Lab <span class="ok">[COMPLETE]</span></h3>
+                            <p>A virtualized Windows domain in Hyper-V: domain controller with DNS and DHCP,
+                                organizational units and security groups, a domain-joined Windows 11 client, Group
+                                Policy for drive mapping, restrictions, and Remote Desktop access, plus four resolved
+                                help desk tickets covering lockouts, password resets, disabled accounts, and
+                                policies not applying.</p>
+                            <a class="go" href="https://emilagui01.github.io/ad-homelab/">&gt; cd ~/labs/ad-homelab</a>
                         </div>
                         <div class="lab">
-                            <h3>Help Desk Ticketing System Deployment <span class="plan">[PLANNED]</span></h3>
+                            <h3>Help Desk Ticketing System Deployment <span class="wip">[NEXT]</span></h3>
                             <p>A self-hosted ticketing system with departmental queues, priority tiers, SLA targets,
-                                and a knowledge base documenting recurring issues and their fixes.</p>
+                                and a knowledge base documenting recurring issues and their fixes, connected to the
+                                Active Directory lab domain.</p>
                         </div>
                         <div class="lab">
                             <h3>PowerShell Automation Scripts <span class="plan">[PLANNED]</span></h3>
