@@ -15,7 +15,7 @@ toward a career in cybersecurity.
 | --- | --- | --- |
 | [Windows Server 2022 Active Directory](https://emilagui01.github.io/ad-homelab/) | Domain controller, DNS, DHCP, Group Policy, user administration, help desk tickets | Complete |
 | [Help Desk Ticketing System](https://emilagui01.github.io/helpdesk-lab/) | osTicket on Ubuntu Server, AD/LDAP integration, SLA tiers, Tier 1 to Tier 2 escalation, knowledge base | Complete |
-| PowerShell Automation | Bulk AD user provisioning, onboarding automation | Next |
+| [PowerShell Automation](https://emilagui01.github.io/powershell-automation-lab/) | Onboarding, offboarding and account reporting scripts for AD, driven by osTicket tickets | Complete |
 
 ## Certifications
 

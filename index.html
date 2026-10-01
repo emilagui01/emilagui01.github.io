@@ -428,8 +428,8 @@
                         <p>
                             Computer Science graduate from Southern New Hampshire University, and CompTIA Network+
                             and Microsoft Azure Fundamentals (AZ-900) certified IT support candidate working toward
-                            a career in cybersecurity. This portfolio collects my home labs (Active Directory and
-                            a Linux-hosted help desk), certifications, and software projects.
+                            a career in cybersecurity. This portfolio collects my home labs (Active Directory, a
+                            Linux-hosted help desk, and PowerShell automation), certifications, and software projects.
                         </p>
                         <a class="btn" href="resume.pdf" target="_blank" rel="noopener">&gt; start resume.pdf</a>
                     </div>
@@ -516,9 +516,12 @@
                             <a class="go" href="https://emilagui01.github.io/helpdesk-lab/">&gt; cd ~/labs/helpdesk-lab</a>
                         </div>
                         <div class="lab">
-                            <h3>PowerShell Automation Scripts <span class="wip">[NEXT]</span></h3>
-                            <p>Scripts for bulk Active Directory user provisioning from CSV input and automated
-                                new-hire onboarding: account creation, security group assignment, and home folder setup.</p>
+                            <h3>PowerShell Automation Lab <span class="ok">[COMPLETE]</span></h3>
+                            <p>Three PowerShell scripts that run the account lifecycle of the lab domain: bulk onboarding
+                                from CSV (department OUs, groups, private home folders), safe offboarding that disables and
+                                archives instead of deleting, and an HTML account health report. Every run supports -WhatIf,
+                                is logged, and is tied to an osTicket ticket number stamped on the account in AD.</p>
+                            <a class="go" href="https://emilagui01.github.io/powershell-automation-lab/">&gt; cd ~/labs/powershell-automation-lab</a>
                         </div>
                     </div>
                 </div>
