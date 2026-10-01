@@ -14,8 +14,8 @@ toward a career in cybersecurity.
 | Lab | Focus | Status |
 | --- | --- | --- |
 | [Windows Server 2022 Active Directory](https://emilagui01.github.io/ad-homelab/) | Domain controller, DNS, DHCP, Group Policy, user administration, help desk tickets | Complete |
-| Help Desk Ticketing System | Queues, SLA tiers, knowledge base documentation | Next |
-| PowerShell Automation | Bulk AD user provisioning, onboarding automation | Planned |
+| [Help Desk Ticketing System](https://emilagui01.github.io/helpdesk-lab/) | osTicket on Ubuntu Server, AD/LDAP integration, SLA tiers, Tier 1 to Tier 2 escalation, knowledge base | Complete |
+| PowerShell Automation | Bulk AD user provisioning, onboarding automation | Next |
 
 ## Certifications
 
