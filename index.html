@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emil Aguirre Herrera - IT and Cybersecurity Portfolio</title>
+    <title>Emil Aguirre Herrera - IT Support and Networking Portfolio</title>
     <meta name="description" content="Emil Aguirre Herrera - Computer Science graduate, CompTIA Network+ and Microsoft Azure Fundamentals certified, seeking entry-level IT support roles.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -21,6 +21,7 @@
             --amber: #ffb547;
             --cyan: #62d0ff;
             --mono: "JetBrains Mono", "Cascadia Code", Consolas, "SF Mono", Menlo, monospace;
+            --sans: "Atkinson Hyperlegible", "Segoe UI", Arial, Helvetica, sans-serif;
         }
 
         * { box-sizing: border-box; }
@@ -72,22 +73,25 @@
 
         .rack-top {
             margin: 0 -58px;
-            padding: 12px 20px;
+            padding: 10px 20px;
             border-bottom: 2px solid #0c0e11;
             background:
-                repeating-linear-gradient(90deg, #0d1013 0 3px, transparent 3px 9px) center / 60% 10px no-repeat,
+                repeating-linear-gradient(90deg, #0d1013 0 3px, transparent 3px 9px) center / 40% 10px no-repeat,
                 linear-gradient(#262c34, #1b2026);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
             font-size: 12px;
             color: #8d98a5;
             letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
+            position: sticky;
+            top: 0;
+            z-index: 5;
         }
 
         .rack-top .pwr { display: flex; align-items: center; gap: 8px; }
+        .rack-top .right { display: flex; align-items: center; gap: 14px; }
 
         .led {
             display: inline-block;
@@ -108,6 +112,36 @@
         }
 
         .bay { position: relative; z-index: 1; padding: 22px 0; }
+
+        /* ================= View toggle ================= */
+        .plain { display: none; }
+
+        .view-toggle {
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0;
+            line-height: 1.2;
+            padding: 8px 14px;
+            border-radius: 6px;
+            border: 2px solid var(--amber);
+            background: var(--amber);
+            color: #1a1200;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .view-toggle:hover { background: #ffc875; }
+        .view-toggle:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+        .view-toggle .aa {
+            font-size: 15px;
+            background: #1a1200;
+            color: var(--amber);
+            border-radius: 4px;
+            padding: 1px 5px;
+        }
 
         /* ================= Rack devices (clipart) ================= */
         .device { display: block; width: 100%; height: auto; }
@@ -303,6 +337,8 @@
         }
         .btn:hover, .btn:focus-visible { background: var(--green); color: #04120a; outline: none; }
 
+        .cap-title { color: #fff; }
+
         /* PowerShell table */
         table { border-collapse: collapse; width: 100%; font-size: 14px; }
         th { text-align: left; font-weight: 600; padding: 0 16px 0 0; white-space: nowrap; }
@@ -339,7 +375,7 @@
             animation: blink 1s infinite steps(2, jump-none);
         }
 
-        section { scroll-margin-top: 16px; }
+        section { scroll-margin-top: 70px; }
 
         footer {
             text-align: center;
@@ -347,6 +383,142 @@
             font-size: 12px;
             padding: 6px 0 26px;
         }
+
+        /* ================= Easy-read view =================
+           Plain light layout, a font designed for readability, larger text,
+           and plain-English wording. Toggled by the button in the top bar. */
+        body.easy span.plain { display: inline; }
+        body.easy div.plain, body.easy p.plain, body.easy h2.plain { display: block; }
+        body.easy .tech,
+        body.easy .hw,
+        body.easy .prompt,
+        body.easy .win-bar,
+        body.easy .neck,
+        body.easy .foot,
+        body.easy .shelf,
+        body.easy .rack-bottom,
+        body.easy .led,
+        body.easy .rack-top .model,
+        body.easy .rack::before,
+        body.easy .rack::after,
+        body.easy .monitor::after,
+        body.easy .jack::before { display: none; }
+
+        body.easy {
+            background: #f4f6f8;
+            color: #1f2933;
+            font-family: var(--sans);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        body.easy .rack {
+            max-width: 820px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            padding: 0 28px;
+            margin: 0 auto 40px;
+        }
+
+        body.easy .rack-top {
+            margin: 0 -28px;
+            padding: 12px 28px;
+            background: #fff;
+            border-bottom: 1px solid #d9dee4;
+            color: #1f2933;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        body.easy .view-toggle { background: #fff; color: #1a5fb4; border-color: #1a5fb4; }
+        body.easy .view-toggle:hover { background: #eaf1fb; }
+        body.easy .view-toggle:focus-visible { outline-color: #1a5fb4; }
+        body.easy .view-toggle .aa { background: #1a5fb4; color: #fff; }
+
+        body.easy .bay { padding: 14px 0; }
+
+        body.easy .panel {
+            background: #fff;
+            border: 1px solid #d9dee4;
+            border-radius: 10px;
+            box-shadow: none;
+            padding: 14px 18px;
+        }
+        body.easy .panel .label { font-size: 16px; color: #52606d; letter-spacing: 0; }
+        body.easy .jack {
+            font-size: 16px;
+            letter-spacing: 0;
+            color: #1a5fb4;
+            padding: 6px 12px;
+            border: 1px solid #c9d6e8;
+            border-radius: 6px;
+        }
+        body.easy .jack:hover, body.easy .jack:focus-visible { background: #eaf1fb; color: #0f3f80; outline: 2px solid #1a5fb4; }
+
+        body.easy .monitor {
+            background: #fff;
+            border: 1px solid #d9dee4;
+            border-radius: 10px;
+            padding: 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        }
+        body.easy .win { border: none; border-radius: 10px; }
+        body.easy .cmd .win-body,
+        body.easy .pwsh .win-body,
+        body.easy .bash .win-body { background: #fff; color: #1f2933; padding: 26px 30px 28px; min-height: 0; }
+
+        body.easy h1 { color: #1f2933; text-shadow: none; font-weight: 700; letter-spacing: 0; margin-top: 0; }
+        body.easy h2 { font-size: 26px; font-weight: 700; color: #1f2933; margin: 0 0 14px; line-height: 1.3; }
+        body.easy .sub { color: #52606d; font-size: 20px; margin-bottom: 16px; }
+        body.easy .intro { color: #52606d; margin: -6px 0 18px; }
+
+        body.easy a { color: #1a5fb4; }
+        body.easy a:hover { color: #0f3f80; }
+        body.easy .btn {
+            background: #1a5fb4;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 700;
+            margin-top: 8px;
+        }
+        body.easy .btn:hover, body.easy .btn:focus-visible { background: #0f3f80; color: #fff; outline: 2px solid #0f3f80; outline-offset: 2px; }
+        body.easy .cap-title { color: #1f2933; }
+
+        body.easy table { font-size: 17px; }
+        body.easy th { font-size: 15px; color: #52606d; padding-bottom: 8px; border-bottom: 2px solid #d9dee4; }
+        body.easy th span { letter-spacing: 0; }
+        body.easy td { padding: 12px 16px 12px 0; border-bottom: 1px solid #eceff2; }
+        body.easy span.cert-note { display: block; color: #52606d; font-size: 16px; line-height: 1.5; margin-top: 2px; }
+        body.easy .pwsh a, body.easy .bash a { color: #1a5fb4; }
+        body.easy .ok, body.easy .bash .ok { color: #1e7a3c; }
+        body.easy .wip { color: #1a5fb4; }
+        body.easy .plan, body.easy .bash .plan { color: #8a5a00; }
+
+        body.easy .lab { border-left: 4px solid #1a5fb4; padding: 4px 0 4px 18px; margin: 0 0 26px; }
+        body.easy .lab:last-child { margin-bottom: 0; }
+        body.easy .lab h3 { color: #1f2933; font-size: 20px; line-height: 1.35; margin-bottom: 6px; }
+        body.easy .lab p { color: #3e4c59; }
+        body.easy .badge {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            background: #e3f4e8;
+            color: #1e7a3c;
+            border-radius: 20px;
+            padding: 1px 10px;
+            vertical-align: middle;
+        }
+        body.easy .lab .go { margin-top: 8px; }
+
+        body.easy .kv li { grid-template-columns: 170px 1fr; padding: 6px 0; }
+        body.easy .kv .k { color: #52606d; font-weight: 700; }
+
+        body.easy footer { color: #52606d; font-size: 15px; padding-top: 10px; }
 
         /* ================= Responsive ================= */
         @media (max-width: 720px) {
@@ -367,8 +539,19 @@
             td { padding: 0; }
             .kv li { grid-template-columns: 1fr; gap: 0; }
             .rack-top .model { display: none; }
-            .rack-top { background: linear-gradient(#262c34, #1b2026); }
+            .rack-top { background: linear-gradient(#262c34, #1b2026); padding: 8px 12px; }
+            .view-toggle { font-size: 13px; padding: 7px 10px; }
             td.na { display: none; }
+
+            body.easy { font-size: 17px; }
+            body.easy .rack { padding: 0 14px; }
+            body.easy .rack-top { margin: 0 -14px; padding: 10px 14px; font-size: 15px; }
+            body.easy .cmd .win-body,
+            body.easy .pwsh .win-body,
+            body.easy .bash .win-body { padding: 20px 18px 22px; }
+            body.easy tr { padding: 12px 0; border-bottom: 1px solid #eceff2; }
+            body.easy td { padding: 0; border-bottom: none; }
+            body.easy .kv li { grid-template-columns: 1fr; padding: 8px 0; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -383,28 +566,53 @@
             .monitor { box-shadow: none; border: none; padding: 0; }
             .win-body { background: #fff !important; color: #000 !important; }
             h1 { color: #000; text-shadow: none; }
+            .cap-title { color: #000; }
         }
     </style>
 </head>
 
 <body>
+<script>
+    // Apply the saved view before the page draws, so it doesn't flash.
+    // Add ?view=easy to the link to open the site straight in easy-read view.
+    (function () {
+        var view = null;
+        try { view = new URLSearchParams(location.search).get('view'); } catch (e) {}
+        if (view !== 'easy' && view !== 'tech') {
+            try { view = localStorage.getItem('portfolio-view'); } catch (e) {}
+        }
+        if (view === 'easy') document.body.classList.add('easy');
+    })();
+</script>
+
 <div class="rack">
 
     <div class="rack-top">
-        <span class="pwr"><i class="led" aria-hidden="true"></i> RACK A1 &middot; ONLINE</span>
-        <span class="model">emilagui01.github.io</span>
+        <span class="pwr">
+            <i class="led" aria-hidden="true"></i>
+            <span class="tech">RACK A1 &middot; ONLINE</span>
+            <span class="plain">Emil Aguirre Herrera &middot; Portfolio</span>
+        </span>
+        <span class="right">
+            <span class="model">emilagui01.github.io</span>
+            <button class="view-toggle" id="viewToggle" type="button">
+                <span class="aa" aria-hidden="true">Aa</span>
+                <span class="tech">Easy-read view</span>
+                <span class="plain">Switch to tech view</span>
+            </button>
+        </span>
     </div>
 
     <!-- Patch panel navigation -->
     <div class="bay">
         <div class="panel">
-            <span class="label">PATCH PANEL &middot; PP-01</span>
+            <span class="label"><span class="tech">PATCH PANEL &middot; PP-01</span><span class="plain">Jump to:</span></span>
             <nav aria-label="Sections">
-                <a class="jack" href="resume.pdf" target="_blank" rel="noopener">RESUME</a>
-                <a class="jack" href="#certifications">CERTS</a>
-                <a class="jack" href="#labs">LABS</a>
-                <a class="jack" href="#capstone">CAPSTONE</a>
-                <a class="jack" href="#contact">CONTACT</a>
+                <a class="jack" href="resume.pdf" target="_blank" rel="noopener"><span class="tech">RESUME</span><span class="plain">Resume</span></a>
+                <a class="jack" href="#certifications"><span class="tech">CERTS</span><span class="plain">Certifications</span></a>
+                <a class="jack" href="#labs"><span class="tech">LABS</span><span class="plain">Projects</span></a>
+                <a class="jack" href="#capstone"><span class="tech">CAPSTONE</span><span class="plain">College work</span></a>
+                <a class="jack" href="#contact"><span class="tech">CONTACT</span><span class="plain">Contact</span></a>
             </nav>
         </div>
     </div>
@@ -422,16 +630,28 @@
                     <div class="win-body">
                         <p class="prompt"><span class="ps1">C:\Users\Emil&gt;</span> whoami</p>
                         <h1>Emil Aguirre Herrera</h1>
-                        <p class="sub">IT Support &amp; Cybersecurity &middot; Austin, Arkansas</p>
+                        <p class="sub">IT Support &amp; Networking &middot; Austin, Arkansas</p>
 
                         <p class="prompt"><span class="ps1">C:\Users\Emil&gt;</span> type about.txt</p>
-                        <p>
+                        <p class="tech">
                             Computer Science graduate from Southern New Hampshire University, and CompTIA Network+
                             and Microsoft Azure Fundamentals (AZ-900) certified IT support candidate working toward
-                            a career in cybersecurity. This portfolio collects my home labs (Active Directory, a
+                            a career in network engineering. This portfolio collects my home labs (Active Directory, a
                             Linux-hosted help desk, and PowerShell automation), certifications, and software projects.
                         </p>
-                        <a class="btn" href="resume.pdf" target="_blank" rel="noopener">&gt; start resume.pdf</a>
+                        <div class="plain">
+                            <p>
+                                I'm a Computer Science graduate from Southern New Hampshire University looking for an
+                                entry-level IT support job. IT support is the team that helps employees when their
+                                computer, account, or network isn't working.
+                            </p>
+                            <p>
+                                I've earned two industry certifications, one in computer networking and one in cloud
+                                computing, and I've built three hands-on practice projects that recreate what a real
+                                company's IT department does every day. My long-term goal is a career in network engineering.
+                            </p>
+                        </div>
+                        <a class="btn" href="resume.pdf" target="_blank" rel="noopener"><span class="tech">&gt; start resume.pdf</span><span class="plain">View my resume (PDF)</span></a>
                     </div>
                 </div>
             </div>
@@ -440,7 +660,7 @@
     </section>
 
     <!-- Device: 24-port switch -->
-    <div class="bay"><svg class="device" id="switch" viewBox="0 0 880 70" role="img" aria-label="Illustration of a network switch"></svg></div>
+    <div class="bay hw"><svg class="device" id="switch" viewBox="0 0 880 70" role="img" aria-label="Illustration of a network switch"></svg></div>
 
     <!-- Screen 2: PowerShell / certifications -->
     <section class="bay" id="certifications">
@@ -454,27 +674,51 @@
                     </div>
                     <div class="win-body">
                         <p class="prompt"><span class="ps1">PS C:\Users\Emil&gt;</span> <span class="kw">Get-Certification</span> | <span class="kw">Format-Table</span> <span class="arg">-AutoSize</span></p>
-                        <h2 class="sr-only" style="position:absolute;left:-9999px">Certifications</h2>
+                        <h2 class="tech" style="position:absolute;left:-9999px">Certifications</h2>
+                        <h2 class="plain">Certifications</h2>
+                        <p class="plain intro">Industry exams that prove my knowledge. Earned ones can be verified with the links on the right.</p>
                         <table>
                             <thead>
-                                <tr><th><span>Name</span>----</th><th><span>Status</span>------</th><th><span>Earned</span>------</th><th><span>Verify</span>------</th></tr>
+                                <tr>
+                                    <th><span class="tech">Name</span><span class="tech">----</span><span class="plain">Certification</span></th>
+                                    <th><span class="tech">Status</span><span class="tech">------</span><span class="plain">Status</span></th>
+                                    <th><span class="tech">Earned</span><span class="tech">------</span><span class="plain">Earned</span></th>
+                                    <th><span class="tech">Verify</span><span class="tech">------</span><span class="plain">Proof</span></th>
+                                </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Microsoft Certified: Azure Fundamentals (AZ-900)</td>
+                                    <td>Microsoft Certified: Azure Fundamentals (AZ-900)
+                                        <span class="plain cert-note">The basics of cloud computing and Microsoft's cloud services.</span></td>
                                     <td class="ok">Earned</td>
                                     <td>Sep 2026</td>
                                     <td><a href="https://learn.microsoft.com/api/credentials/share/en-us/emilagui01-2142/C2607BB8BFF4CE72?sharingId=C0D204C72872EC5B" target="_blank" rel="noopener">Microsoft Learn</a></td>
                                 </tr>
                                 <tr>
-                                    <td>CompTIA Network+</td>
+                                    <td>CompTIA Network+
+                                        <span class="plain cert-note">How computer networks work and how to troubleshoot them. A widely recognized industry standard.</span></td>
                                     <td class="ok">Earned</td>
                                     <td>Aug 2026</td>
                                     <td><a href="https://www.credly.com/badges/2a0773e8-3c62-4146-a724-7d849d03ac85/public_url" target="_blank" rel="noopener">Credly</a></td>
                                 </tr>
-                                <tr><td>CompTIA Security+</td><td class="wip">Studying</td><td class="na">&#8212;</td><td class="na">&#8212;</td></tr>
-                                <tr><td>Cisco CCNA</td><td class="plan">Planned</td><td class="na">&#8212;</td><td class="na">&#8212;</td></tr>
-                                <tr><td>GIAC GCIH</td><td class="plan">Goal</td><td class="na">&#8212;</td><td class="na">&#8212;</td></tr>
+                                <tr>
+                                    <td>CompTIA Security+
+                                        <span class="plain cert-note">Core cybersecurity: protecting systems, accounts, and data.</span></td>
+                                    <td class="wip"><span class="tech">Studying</span><span class="plain">In progress</span></td>
+                                    <td class="na">&#8212;</td><td class="na">&#8212;</td>
+                                </tr>
+                                <tr>
+                                    <td>Cisco CCNA
+                                        <span class="plain cert-note">Hands-on setup of network equipment like routers and switches.</span></td>
+                                    <td class="plan"><span class="tech">Planned</span><span class="plain">Next up</span></td>
+                                    <td class="na">&#8212;</td><td class="na">&#8212;</td>
+                                </tr>
+                                <tr>
+                                    <td>GIAC GCIH
+                                        <span class="plain cert-note">Advanced: detecting and responding to cyberattacks.</span></td>
+                                    <td class="plan"><span class="tech">Goal</span><span class="plain">Long-term goal</span></td>
+                                    <td class="na">&#8212;</td><td class="na">&#8212;</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -485,7 +729,7 @@
     </section>
 
     <!-- Device: 2U server -->
-    <div class="bay"><svg class="device" id="server" viewBox="0 0 880 110" role="img" aria-label="Illustration of a rack server"></svg></div>
+    <div class="bay hw"><svg class="device" id="server" viewBox="0 0 880 110" role="img" aria-label="Illustration of a rack server"></svg></div>
 
     <!-- Screen 3: Bash / labs -->
     <section class="bay" id="labs">
@@ -498,30 +742,58 @@
                     </div>
                     <div class="win-body">
                         <p class="prompt"><span class="u">emil@homelab</span>:<span class="p">~/labs</span>$ ./status.sh</p>
+                        <h2 class="plain">Hands-on projects</h2>
+                        <p class="plain intro">Practice projects I built myself to show I can do the everyday work of an IT support role.</p>
+
                         <div class="lab">
-                            <h3>Windows Server 2022 Active Directory Lab <span class="ok">[COMPLETE]</span></h3>
-                            <p>A virtualized Windows domain in Hyper-V: domain controller with DNS and DHCP,
+                            <h3>
+                                <span class="tech">Windows Server 2022 Active Directory Lab <span class="ok">[COMPLETE]</span></span>
+                                <span class="plain">Managing employee accounts and work computers <span class="badge">Completed</span></span>
+                            </h3>
+                            <p class="tech">A virtualized Windows domain in Hyper-V: domain controller with DNS and DHCP,
                                 organizational units and security groups, a domain-joined Windows 11 client, Group
                                 Policy for drive mapping, restrictions, and Remote Desktop access, plus four resolved
                                 help desk tickets covering lockouts, password resets, disabled accounts, and
                                 policies not applying.</p>
-                            <a class="go" href="https://emilagui01.github.io/ad-homelab/">&gt; cd ~/labs/ad-homelab</a>
+                            <p class="plain">I built a small practice company network on my own computer using Active
+                                Directory, the Microsoft system most businesses use to manage employee logins and
+                                computers. I set up user accounts and teams, connected a work laptop to it, created
+                                settings that apply automatically (like shared drives and remote access), and solved
+                                four common help desk problems: locked-out accounts, password resets, disabled
+                                accounts, and settings that weren't taking effect.</p>
+                            <a class="go" href="https://emilagui01.github.io/ad-homelab/"><span class="tech">&gt; cd ~/labs/ad-homelab</span><span class="plain">See the full project &rarr;</span></a>
                         </div>
                         <div class="lab">
-                            <h3>Help Desk Ticketing System Deployment <span class="ok">[COMPLETE]</span></h3>
-                            <p>osTicket on Ubuntu Server 24.04 (Apache, MariaDB, PHP), managed over SSH and connected
+                            <h3>
+                                <span class="tech">Help Desk Ticketing System Deployment <span class="ok">[COMPLETE]</span></span>
+                                <span class="plain">IT help desk request system <span class="badge">Completed</span></span>
+                            </h3>
+                            <p class="tech">osTicket on Ubuntu Server 24.04 (Apache, MariaDB, PHP), managed over SSH and connected
                                 to the Active Directory lab domain over LDAP with a least-privilege service account.
                                 SLA tiers, Tier 1 and Tier 2 departments, auto-routing help topics, role-based agent
                                 access, tickets worked through escalation, and a public and internal knowledge base.</p>
-                            <a class="go" href="https://emilagui01.github.io/helpdesk-lab/">&gt; cd ~/labs/helpdesk-lab</a>
+                            <p class="plain">I installed and set up a help desk system, the tool IT teams use to
+                                track every request employees send in. Employees sign in with their existing work
+                                login, requests are automatically sent to the right team, urgent issues get faster
+                                response deadlines, and harder problems are handed up to more experienced staff. I
+                                also wrote help articles so people can fix common issues on their own.</p>
+                            <a class="go" href="https://emilagui01.github.io/helpdesk-lab/"><span class="tech">&gt; cd ~/labs/helpdesk-lab</span><span class="plain">See the full project &rarr;</span></a>
                         </div>
                         <div class="lab">
-                            <h3>PowerShell Automation Lab <span class="ok">[COMPLETE]</span></h3>
-                            <p>Three PowerShell scripts that run the account lifecycle of the lab domain: bulk onboarding
+                            <h3>
+                                <span class="tech">PowerShell Automation Lab <span class="ok">[COMPLETE]</span></span>
+                                <span class="plain">Automating new-hire and departing-employee accounts <span class="badge">Completed</span></span>
+                            </h3>
+                            <p class="tech">Three PowerShell scripts that run the account lifecycle of the lab domain: bulk onboarding
                                 from CSV (department OUs, groups, private home folders), safe offboarding that disables and
                                 archives instead of deleting, and an HTML account health report. Every run supports -WhatIf,
                                 is logged, and is tied to an osTicket ticket number stamped on the account in AD.</p>
-                            <a class="go" href="https://emilagui01.github.io/powershell-automation-lab/">&gt; cd ~/labs/powershell-automation-lab</a>
+                            <p class="plain">I wrote small programs that handle repetitive account work automatically:
+                                setting up accounts for a group of new hires from a spreadsheet, safely shutting off
+                                accounts when people leave (saved and archived, never deleted), and producing a report
+                                on the health of all accounts. Every change can be previewed before it runs, is
+                                recorded, and is linked to the help desk request that asked for it.</p>
+                            <a class="go" href="https://emilagui01.github.io/powershell-automation-lab/"><span class="tech">&gt; cd ~/labs/powershell-automation-lab</span><span class="plain">See the full project &rarr;</span></a>
                         </div>
                     </div>
                 </div>
@@ -531,7 +803,7 @@
     </section>
 
     <!-- Device: firewall / router -->
-    <div class="bay"><svg class="device" id="firewall" viewBox="0 0 880 70" role="img" aria-label="Illustration of a firewall appliance"></svg></div>
+    <div class="bay hw"><svg class="device" id="firewall" viewBox="0 0 880 70" role="img" aria-label="Illustration of a firewall appliance"></svg></div>
 
     <!-- Screen 4: Command Prompt / capstone -->
     <section class="bay" id="capstone">
@@ -545,13 +817,20 @@
                     </div>
                     <div class="win-body">
                         <p class="prompt"><span class="ps1">C:\Users\Emil&gt;</span> cd capstone &amp;&amp; type README.txt</p>
-                        <p><strong style="color:#fff">CS-499 Computer Science Capstone ePortfolio</strong> &middot; SNHU</p>
-                        <p>
+                        <h2 class="plain">College work</h2>
+                        <p><strong class="cap-title">CS-499 Computer Science Capstone ePortfolio</strong> &middot; SNHU</p>
+                        <p class="tech">
                             I enhanced and documented three artifacts across software engineering and design,
                             algorithms and data structures, and databases, with a professional self-assessment,
                             a recorded code review, per-artifact enhancement writeups, and documented test procedures.
                         </p>
-                        <a class="btn" href="capstone/">&gt; start capstone\</a>
+                        <p class="plain">
+                            The final project of my Computer Science degree. I improved two programs I had built earlier
+                            in my degree, a travel booking web app and a course-planning tool. The work covered how
+                            software is designed, how it finds data quickly, and how it stores information in databases. I documented and tested each improvement, recorded
+                            a video walking through the code, and wrote a reflection on my growth as a professional.
+                        </p>
+                        <a class="btn" href="capstone/"><span class="tech">&gt; start capstone\</span><span class="plain">View my capstone</span></a>
                     </div>
                 </div>
             </div>
@@ -560,7 +839,7 @@
     </section>
 
     <!-- Device: second switch -->
-    <div class="bay"><svg class="device" id="switch2" viewBox="0 0 880 70" role="img" aria-label="Illustration of a network switch"></svg></div>
+    <div class="bay hw"><svg class="device" id="switch2" viewBox="0 0 880 70" role="img" aria-label="Illustration of a network switch"></svg></div>
 
     <!-- Screen 5: Bash / contact -->
     <section class="bay" id="contact">
@@ -573,11 +852,12 @@
                     </div>
                     <div class="win-body">
                         <p class="prompt"><span class="u">emil@homelab</span>:<span class="p">~</span>$ cat contact.txt</p>
+                        <h2 class="plain">Get in touch</h2>
                         <ul class="kv">
-                            <li><span class="k">email</span><a href="mailto:emilagui01@gmail.com">emilagui01@gmail.com</a></li>
-                            <li><span class="k">linkedin</span><a href="https://www.linkedin.com/in/emilagui01" target="_blank" rel="noopener">linkedin.com/in/emilagui01</a></li>
-                            <li><span class="k">github</span><a href="https://github.com/emilagui01" target="_blank" rel="noopener">github.com/emilagui01</a></li>
-                            <li><span class="k">resume</span><a href="resume.pdf" target="_blank" rel="noopener">resume.pdf</a></li>
+                            <li><span class="k"><span class="tech">email</span><span class="plain">Email</span></span><a href="mailto:emilagui01@gmail.com">emilagui01@gmail.com</a></li>
+                            <li><span class="k"><span class="tech">linkedin</span><span class="plain">LinkedIn</span></span><a href="https://www.linkedin.com/in/emilagui01" target="_blank" rel="noopener">linkedin.com/in/emilagui01</a></li>
+                            <li><span class="k"><span class="tech">github</span><span class="plain">GitHub (my code)</span></span><a href="https://github.com/emilagui01" target="_blank" rel="noopener">github.com/emilagui01</a></li>
+                            <li><span class="k"><span class="tech">resume</span><span class="plain">Resume</span></span><a href="resume.pdf" target="_blank" rel="noopener">resume.pdf</a></li>
                         </ul>
                         <p class="prompt" style="margin-top:18px"><span class="u">emil@homelab</span>:<span class="p">~</span>$ <span class="cursor" aria-hidden="true"></span></p>
                     </div>
@@ -588,13 +868,22 @@
     </section>
 
     <!-- Device: UPS -->
-    <div class="bay"><svg class="device" id="ups" viewBox="0 0 880 90" role="img" aria-label="Illustration of a battery backup unit"></svg></div>
+    <div class="bay hw"><svg class="device" id="ups" viewBox="0 0 880 90" role="img" aria-label="Illustration of a battery backup unit"></svg></div>
 
     <footer>Emil Aguirre Herrera &middot; Austin, Arkansas</footer>
     <div class="rack-bottom"></div>
 </div>
 
 <script>
+    // Easy-read / tech view toggle. The choice is remembered for the next visit.
+    (function () {
+        var btn = document.getElementById('viewToggle');
+        btn.addEventListener('click', function () {
+            var easy = document.body.classList.toggle('easy');
+            try { localStorage.setItem('portfolio-view', easy ? 'easy' : 'tech'); } catch (e) {}
+        });
+    })();
+
     // Draw the rack hardware illustrations. These are decorative; all content above is plain HTML.
     var NS = 'http://www.w3.org/2000/svg';
     function el(parent, tag, attrs, text) {
