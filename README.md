@@ -1,11 +1,11 @@
-# Emil Aguirre Herrera - IT and Cybersecurity Portfolio
+# Emil Aguirre Herrera: IT Support and Networking Portfolio
 
-Portfolio site for my IT support and cybersecurity work, hosted with GitHub Pages at
+Portfolio site for my IT support and networking work, hosted with GitHub Pages at
 **https://emilagui01.github.io**
 
 I am a Computer Science graduate from Southern New Hampshire University and a CompTIA
 Network+ and Microsoft Azure Fundamentals (AZ-900) certified IT support candidate working
-toward a career in cybersecurity.
+toward a career in network engineering.
 
 **Resume:** https://emilagui01.github.io/resume.pdf
 
@@ -15,15 +15,15 @@ toward a career in cybersecurity.
 | --- | --- | --- |
 | [Windows Server 2022 Active Directory](https://emilagui01.github.io/ad-homelab/) | Domain controller, DNS, DHCP, Group Policy, user administration, help desk tickets | Complete |
 | [Help Desk Ticketing System](https://emilagui01.github.io/helpdesk-lab/) | osTicket on Ubuntu Server, AD/LDAP integration, SLA tiers, Tier 1 to Tier 2 escalation, knowledge base | Complete |
-| [PowerShell Automation](https://emilagui01.github.io/powershell-automation-lab/) | Onboarding, offboarding and account reporting scripts for AD, driven by osTicket tickets | Complete |
+| [PowerShell Automation](https://emilagui01.github.io/powershell-automation-lab/) | Onboarding, offboarding and account reporting scripts for AD (AI-generated, tested in the lab), with help desk requests run from osTicket tickets | Complete |
 
 ## Certifications
 
-* Microsoft Certified: Azure Fundamentals (AZ-900) - Earned September 2026 ([verify](https://learn.microsoft.com/api/credentials/share/en-us/emilagui01-2142/C2607BB8BFF4CE72?sharingId=C0D204C72872EC5B))
-* CompTIA Network+ - Earned August 2026 ([verify](https://www.credly.com/badges/2a0773e8-3c62-4146-a724-7d849d03ac85/public_url))
-* CompTIA Security+ - In progress
-* Cisco CCNA - Planned
-* GIAC GCIH - Long-term goal
+* Microsoft Certified: Azure Fundamentals (AZ-900), earned September 2026 ([verify](https://learn.microsoft.com/api/credentials/share/en-us/emilagui01-2142/C2607BB8BFF4CE72?sharingId=C0D204C72872EC5B))
+* CompTIA Network+, earned August 2026 ([verify](https://www.credly.com/badges/2a0773e8-3c62-4146-a724-7d849d03ac85/public_url))
+* CompTIA Security+, in progress
+* Cisco CCNA, planned
+* GIAC GCIH, long-term goal
 
 ## CS-499 Computer Science Capstone ePortfolio
 
