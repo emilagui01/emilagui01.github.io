@@ -9,13 +9,23 @@ toward a career in network engineering.
 
 **Resume:** https://emilagui01.github.io/resume.pdf
 
-## Home Labs
+## IT Support Lab Series
+
+One project in three connected labs, all built on the same Active Directory domain (emillab.local).
 
 | Lab | Focus | Status |
 | --- | --- | --- |
 | [Windows Server 2022 Active Directory](https://emilagui01.github.io/ad-homelab/) | Domain controller, DNS, DHCP, Group Policy, user administration, help desk tickets | Complete |
 | [Help Desk Ticketing System](https://emilagui01.github.io/helpdesk-lab/) | osTicket on Ubuntu Server, AD/LDAP integration, SLA tiers, Tier 1 to Tier 2 escalation, knowledge base | Complete |
 | [PowerShell Automation](https://emilagui01.github.io/powershell-automation-lab/) | Onboarding, offboarding and account reporting scripts for AD (AI-generated, tested in the lab), with help desk requests run from osTicket tickets | Complete |
+
+## Security Project
+
+A standalone project with its own Proxmox host and domain (seclab.local), separate from the lab series.
+
+| Project | Focus | Status |
+| --- | --- | --- |
+| [Security Monitoring Lab](https://emilagui01.github.io/security-monitoring-lab/) | Proxmox VE nested in Hyper-V, Advanced Audit Policy, PowerShell logging, Microsoft Defender; seven simulated attacks detected in Event Viewer and hunted with a PowerShell script (AI-generated, tested in the lab) | Complete |
 
 ## Certifications
 

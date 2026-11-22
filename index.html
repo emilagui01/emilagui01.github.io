@@ -359,6 +359,35 @@
         .lab .go { display: inline-block; margin-top: 6px; font-weight: 600; text-decoration: none; }
         .lab .go:hover, .lab .go:focus-visible { text-decoration: underline; }
         .bash .ok { color: #8ae234; }
+
+        /* lab series grouping: three connected labs on one domain */
+        .series-head { margin: 0 0 14px; color: #ad7fa8; font-size: 13px; letter-spacing: 1px; }
+        .series-head b { color: #fff; font-weight: 600; }
+        .series { position: relative; padding-left: 26px; }
+        .series::before { content: ""; position: absolute; left: 8px; top: 10px; bottom: 18px; width: 2px; background: #5c3566; }
+        .series .lab { position: relative; }
+        .series .lab::before {
+            content: attr(data-step); position: absolute; left: -27px; top: 6px;
+            width: 20px; height: 20px; border-radius: 50%; background: #2c001e; border: 2px solid #ad7fa8;
+            color: #fff; font-size: 11px; font-weight: 800; line-height: 16px; text-align: center;
+        }
+
+        /* Proxmox window: the standalone security project */
+        .pve .win-bar { background: #121212; color: #e8e8e8; border-bottom: 1px solid #000; }
+        .pve .win-bar .icon { background: #e57000; color: #fff; }
+        .pve .win-body { background: #1b1b1b; color: #e8e8e8; }
+        .pve .u { color: #ff9c3d; font-weight: 600; }
+        .pve .p { color: #3892d4; font-weight: 600; }
+        .pve a { color: #6db6ec; }
+        .qm { margin: 0 0 16px; padding: 10px 12px; background: #252525; border: 1px solid #3f3f3f; border-radius: 3px; overflow-x: auto; font-family: var(--mono); font-size: 13px; line-height: 1.5; color: #cfcfcf; }
+        .qm .run { color: #21bf4b; }
+        .proj-tag { display: inline-block; margin: 0 0 10px; padding: 2px 10px; border: 1px solid #e57000; border-radius: 3px; color: #ff9c3d; font-size: 12px; letter-spacing: 1px; }
+        .pve .lab { border-left-color: #e57000; }
+        .pve .lab p { color: #d0d0d0; }
+        .pve .ok { color: #21bf4b; }
+        .stats { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 2px; padding: 0; list-style: none; }
+        .stats li { background: #252525; border: 1px solid #3f3f3f; border-radius: 3px; padding: 3px 10px; font-size: 13px; color: #cfcfcf; }
+        .stats b { color: #ff9c3d; }
         .bash .plan { color: #fce94f; }
 
         .kv { list-style: none; padding: 0; margin: 0; }
@@ -468,7 +497,8 @@
         body.easy .win { border: none; border-radius: 10px; }
         body.easy .cmd .win-body,
         body.easy .pwsh .win-body,
-        body.easy .bash .win-body { background: #fff; color: #1f2933; padding: 26px 30px 28px; min-height: 0; }
+        body.easy .bash .win-body,
+        body.easy .pve .win-body { background: #fff; color: #1f2933; padding: 26px 30px 28px; min-height: 0; }
 
         body.easy h1 { color: #1f2933; text-shadow: none; font-weight: 700; letter-spacing: 0; margin-top: 0; }
         body.easy h2 { font-size: 26px; font-weight: 700; color: #1f2933; margin: 0 0 14px; line-height: 1.3; }
@@ -494,7 +524,17 @@
         body.easy th span { letter-spacing: 0; }
         body.easy td { padding: 12px 16px 12px 0; border-bottom: 1px solid #eceff2; }
         body.easy span.cert-note { display: block; color: #52606d; font-size: 16px; line-height: 1.5; margin-top: 2px; }
-        body.easy .pwsh a, body.easy .bash a { color: #1a5fb4; }
+        body.easy .pwsh a, body.easy .bash a, body.easy .pve a { color: #1a5fb4; }
+        body.easy .series-head, body.easy .qm, body.easy .proj-tag { display: none; }
+        body.easy .series { padding-left: 34px; }
+        body.easy .series::before { background: #c9d6e8; left: 11px; }
+        body.easy .series .lab::before { left: -35px; width: 26px; height: 26px; line-height: 22px; font-size: 14px; background: #fff; border-color: #1a5fb4; color: #1a5fb4; }
+        body.easy .pve .lab { border-left-color: #c2410c; }
+        body.easy .pve .lab p { color: #3e4c59; }
+        body.easy .pve .ok { color: #1e7a3c; }
+        body.easy .stats li { background: #f4f6f8; border-color: #e3e7eb; color: #3e4c59; font-size: 16px; border-radius: 6px; }
+        body.easy .stats b { color: #c2410c; }
+        body.easy .sec-badge { background: #fff1e6; color: #9a3412; }
         body.easy .ok, body.easy .bash .ok { color: #1e7a3c; }
         body.easy .wip { color: #1a5fb4; }
         body.easy .plan, body.easy .bash .plan { color: #8a5a00; }
@@ -548,7 +588,8 @@
             body.easy .rack-top { margin: 0 -14px; padding: 10px 14px; font-size: 15px; }
             body.easy .cmd .win-body,
             body.easy .pwsh .win-body,
-            body.easy .bash .win-body { padding: 20px 18px 22px; }
+            body.easy .bash .win-body,
+            body.easy .pve .win-body { padding: 20px 18px 22px; }
             body.easy tr { padding: 12px 0; border-bottom: 1px solid #eceff2; }
             body.easy td { padding: 0; border-bottom: none; }
             body.easy .kv li { grid-template-columns: 1fr; padding: 8px 0; }
@@ -610,7 +651,8 @@
             <nav aria-label="Sections">
                 <a class="jack" href="resume.pdf" target="_blank" rel="noopener"><span class="tech">RESUME</span><span class="plain">Resume</span></a>
                 <a class="jack" href="#certifications"><span class="tech">CERTS</span><span class="plain">Certifications</span></a>
-                <a class="jack" href="#labs"><span class="tech">LABS</span><span class="plain">Projects</span></a>
+                <a class="jack" href="#labs"><span class="tech">LABS</span><span class="plain">Lab series</span></a>
+                <a class="jack" href="#security"><span class="tech">SECURITY</span><span class="plain">Security project</span></a>
                 <a class="jack" href="#capstone"><span class="tech">CAPSTONE</span><span class="plain">College work</span></a>
                 <a class="jack" href="#contact"><span class="tech">CONTACT</span><span class="plain">Contact</span></a>
             </nav>
@@ -636,8 +678,9 @@
                         <p class="tech">
                             Computer Science graduate from Southern New Hampshire University, and CompTIA Network+
                             and Microsoft Azure Fundamentals (AZ-900) certified IT support candidate working toward
-                            a career in network engineering. This portfolio collects my home labs (Active Directory, a
-                            Linux-hosted help desk, and PowerShell automation), certifications, and software projects.
+                            a career in network engineering. This portfolio collects a three-part home lab series (Active
+                            Directory, a Linux-hosted help desk, and PowerShell automation), a standalone security
+                            monitoring project on Proxmox, my certifications, and software projects.
                         </p>
                         <div class="plain">
                             <p>
@@ -647,8 +690,9 @@
                             </p>
                             <p>
                                 I've earned two industry certifications, one in computer networking and one in cloud
-                                computing, and I've built three hands-on practice projects that recreate what a real
-                                company's IT department does every day. My long-term goal is a career in network engineering.
+                                computing. I've built a three-part practice project that recreates what a real company's IT
+                                department does every day, plus a separate security project where I caught simulated
+                                cyberattacks. My long-term goal is a career in network engineering.
                             </p>
                         </div>
                         <a class="btn" href="resume.pdf" target="_blank" rel="noopener"><span class="tech">&gt; start resume.pdf</span><span class="plain">View my resume (PDF)</span></a>
@@ -742,10 +786,12 @@
                     </div>
                     <div class="win-body">
                         <p class="prompt"><span class="u">emil@homelab</span>:<span class="p">~/labs</span>$ ./status.sh</p>
-                        <h2 class="plain">Hands-on projects</h2>
-                        <p class="plain intro">Practice projects I built to show I can do the everyday work of an IT support role.</p>
+                        <p class="series-head"><b>IT SUPPORT LAB SERIES</b> &middot; 3 connected labs &middot; one domain: emillab.local</p>
+                        <h2 class="plain">IT support lab series</h2>
+                        <p class="plain intro">One project in three parts, all on the same practice company network. Each part builds on the one before it, the way an IT team would set things up for real.</p>
 
-                        <div class="lab">
+                        <div class="series">
+                        <div class="lab" data-step="1">
                             <h3>
                                 <span class="tech">Windows Server 2022 Active Directory Lab <span class="ok">[COMPLETE]</span></span>
                                 <span class="plain">Managing employee accounts and work computers <span class="badge">Completed</span></span>
@@ -763,7 +809,7 @@
                                 accounts, and settings that weren't taking effect.</p>
                             <a class="go" href="https://emilagui01.github.io/ad-homelab/"><span class="tech">&gt; cd ~/labs/ad-homelab</span><span class="plain">See the full project &rarr;</span></a>
                         </div>
-                        <div class="lab">
+                        <div class="lab" data-step="2">
                             <h3>
                                 <span class="tech">Help Desk Ticketing System Deployment <span class="ok">[COMPLETE]</span></span>
                                 <span class="plain">IT help desk request system <span class="badge">Completed</span></span>
@@ -779,7 +825,7 @@
                                 also wrote help articles so people can fix common issues on their own.</p>
                             <a class="go" href="https://emilagui01.github.io/helpdesk-lab/"><span class="tech">&gt; cd ~/labs/helpdesk-lab</span><span class="plain">See the full project &rarr;</span></a>
                         </div>
-                        <div class="lab">
+                        <div class="lab" data-step="3">
                             <h3>
                                 <span class="tech">PowerShell Automation Lab <span class="ok">[COMPLETE]</span></span>
                                 <span class="plain">Automating new-hire and departing-employee accounts <span class="badge">Completed</span></span>
@@ -797,6 +843,7 @@
                                 ticket that asked for them.</p>
                             <a class="go" href="https://emilagui01.github.io/powershell-automation-lab/"><span class="tech">&gt; cd ~/labs/powershell-automation-lab</span><span class="plain">See the full project &rarr;</span></a>
                         </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -807,7 +854,61 @@
     <!-- Device: firewall / router -->
     <div class="bay hw"><svg class="device" id="firewall" viewBox="0 0 880 70" role="img" aria-label="Illustration of a firewall appliance"></svg></div>
 
-    <!-- Screen 4: Command Prompt / capstone -->
+    <!-- Screen 4: Proxmox / standalone security project -->
+    <section class="bay" id="security">
+        <div class="station">
+            <div class="monitor">
+                <div class="win pve">
+                    <div class="win-bar">
+                        <span class="icon" aria-hidden="true">X</span>
+                        <span class="title">pve - Proxmox Virtual Environment 9.2</span>
+                        <span class="ctrl" aria-hidden="true"><i>&#8212;</i><i>&#9744;</i><i>&#10005;</i></span>
+                    </div>
+                    <div class="win-body">
+                        <p class="prompt"><span class="u">root@pve</span>:<span class="p">~</span># qm list</p>
+<pre class="qm tech">      VMID NAME        STATUS     MEM(MB)   BOOTDISK(GB)
+       101 SEC-DC01    <span class="run">running</span>    4096      60.00
+       102 SEC-WIN11   <span class="run">running</span>    6144      64.00</pre>
+                        <span class="proj-tag tech">STANDALONE PROJECT &middot; SEPARATE DOMAIN: seclab.local</span>
+                        <h2 class="plain">Security project</h2>
+                        <p class="plain intro">A separate project from the series above, focused on cybersecurity, with its own practice network built from scratch.</p>
+
+                        <div class="lab">
+                            <h3>
+                                <span class="tech">Security Monitoring Lab <span class="ok">[COMPLETE]</span></span>
+                                <span class="plain">Catching cyberattacks in a practice network <span class="badge sec-badge">Completed</span></span>
+                            </h3>
+                            <p class="tech">Proxmox VE nested inside Hyper-V, hosting a new Windows Server 2022 domain and a
+                                Windows 11 client on a private NAT bridge, with MFA on the Proxmox console. One GPO turns on
+                                Advanced Audit Policy, command-line process auditing and PowerShell script block logging,
+                                alongside Microsoft Defender with Tamper Protection. Seven simulated attacks (account lockout,
+                                a backdoor Domain Admin, an EICAR malware test, disabling Defender, encoded PowerShell, scheduled
+                                task persistence, and clearing the Security log) were each detected in Event Viewer or Defender,
+                                written up, and cleaned up, then hunted across three logs with an AI-generated PowerShell script
+                                that I ran and tested.</p>
+                            <p class="plain">I built a new practice company network inside a server platform called Proxmox,
+                                turned on the security records a security team relies on, then safely acted out seven things
+                                real attackers do, like guessing passwords, creating a secret admin account, and trying to turn
+                                off antivirus. I found the evidence for every one, explained what it showed, and cleaned up.
+                                I also used AI to write a script that pulls every alert into one timeline, then tested it.</p>
+                            <ul class="stats">
+                                <li><b>7 / 7</b> attacks detected</li>
+                                <li><b>15</b> logging settings</li>
+                                <li><b>1,462</b> events hunted</li>
+                            </ul>
+                            <a class="go" href="https://emilagui01.github.io/security-monitoring-lab/"><span class="tech">&gt; cd ~/projects/security-monitoring-lab</span><span class="plain">See the full project &rarr;</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="neck"></div><div class="foot"></div><div class="shelf"></div>
+        </div>
+    </section>
+
+    <!-- Device: Proxmox host -->
+    <div class="bay hw"><svg class="device" id="server2" viewBox="0 0 880 110" role="img" aria-label="Illustration of a rack server"></svg></div>
+
+    <!-- Screen 5: Command Prompt / capstone -->
     <section class="bay" id="capstone">
         <div class="station">
             <div class="monitor">
@@ -843,7 +944,7 @@
     <!-- Device: second switch -->
     <div class="bay hw"><svg class="device" id="switch2" viewBox="0 0 880 70" role="img" aria-label="Illustration of a network switch"></svg></div>
 
-    <!-- Screen 5: Bash / contact -->
+    <!-- Screen 6: Bash / contact -->
     <section class="bay" id="contact">
         <div class="station">
             <div class="monitor">
@@ -933,9 +1034,9 @@
         led(s, 60, 36, '#3dff8b', 3); led(s, 76, 36, '#3dff8b', 3); led(s, 92, 36, '#62d0ff', 3);
     }
 
-    function drawServer() {
-        var s = document.getElementById('server'); if (!s) return;
-        chassis(s, 110, 'SRV-DC01');
+    function drawServer(id, label) {
+        var s = document.getElementById(id); if (!s) return;
+        chassis(s, 110, label);
         // drive bays
         for (var i = 0; i < 8; i++) {
             var x = 150 + i * 62;
@@ -982,7 +1083,8 @@
 
     drawSwitch('switch', 'SW-CORE-01');
     drawSwitch('switch2', 'SW-ACCESS-02');
-    drawServer();
+    drawServer('server', 'SRV-DC01');
+    drawServer('server2', 'SRV-PVE01');
     drawFirewall();
     drawUPS();
 </script>
